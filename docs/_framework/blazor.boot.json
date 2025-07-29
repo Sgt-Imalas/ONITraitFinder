@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "TraitFinderApp",
   "resources": {
-    "hash": "sha256-nAcXjliaZ66Rb+mExwwHKbpFFhrME1Uy4Vf7pz3U1Uo=",
+    "hash": "sha256-xd58wM+M1K+5OUcyqJwNcexReNj23NqW6RQXlgBcWjI=",
     "jsModuleNative": {
       "dotnet.native.js": "sha256-mXEsHmjOjoB5zswyr21YRp/MNHRc9u7sRASp12rEHKY="
     },
@@ -9,7 +9,7 @@
       "dotnet.runtime.js": "sha256-44Vu7OSX4JP89eoc3oTYbYfC5C7USoIWuCw1W9IG6N4="
     },
     "wasmNative": {
-      "dotnet.native.wasm": "sha256-WbA5rpMjJ/Jl5DY3ra7N2hkwG9WECiYMQWSyd2qMlV0="
+      "dotnet.native.wasm": "sha256-wNySySjs0DCBeeRYrTbNNA/a97Kjrpj11emokFePqsQ="
     },
     "icu": {
       "icudt_CJK.dat": "sha256-SZLtQnRc0JkwqHab0VUVP7T3uBPSeYzxzDnpxPpUnHk=",
@@ -94,17 +94,17 @@
       "System.Xml.Linq.wasm": "sha256-kZJO/BQhANYZ4psstEnj8MTlj1aTXnXh0OYp2XqcrDI=",
       "System.Xml.ReaderWriter.wasm": "sha256-grqNSBBy8mw3xndAU2DYS5PfvBaavbb4NQWt+elGmQ8=",
       "System.Xml.XDocument.wasm": "sha256-Ld2Duo5cx866h/dUuzHYX2KETU3bCtE21mNxfqwGHv4=",
-      "TraitFinderApp.wasm": "sha256-GJYHqV0ayDAxhASTZZeJWDV9VcbPVePrcKCSUwoSKUQ="
+      "TraitFinderApp.wasm": "sha256-vEb3Gk1RMsyxJIUbarX0pV3AIQKQnEOFetYyFdpkmDc="
     },
     "satelliteResources": {
       "de": {
-        "TraitFinderApp.resources.wasm": "sha256-ZF8ZVmEBSiS/ou33ZKjoPbJpjKora7+pSS3xA/yy26A="
+        "TraitFinderApp.resources.wasm": "sha256-jVeFgCDqlIUzuDfLLoHMJVIdkG27oeGJVfw3sbx9pYU="
       },
       "zh": {
-        "TraitFinderApp.resources.wasm": "sha256-0/O2QRju/VMc1Elm685veWUg10jyHq+2BQ9RCER7jns="
+        "TraitFinderApp.resources.wasm": "sha256-weU7Lkr00ereIwmvrL7wa1hkQmszkPUyzUOVCDPWq8g="
       },
       "zh-TW": {
-        "TraitFinderApp.resources.wasm": "sha256-Xp7615xRBjcC5XCnB8M7I+kb29QIOv1wtw0ZjuklepY="
+        "TraitFinderApp.resources.wasm": "sha256-XdAtsexvxzjbvTvTArPCX9KXjz8rAmNY4J7l9Hmeb3w="
       }
     }
   },

@@ -136,15 +136,22 @@ namespace TraitFinderApp.Client.Model
 
 		public static async Task FetchFailedSeeds(HttpClient Http)
 		{
-			var failedSeedFetch = await Http.GetAsync(FAILED_SEEDS_URL);
-			if (failedSeedFetch == null)
-				return;
+			try
+			{
+				var failedSeedFetch = await Http.GetAsync(FAILED_SEEDS_URL);
+				if (failedSeedFetch == null)
+					return;
 
-			var fetchedFailedSeedsString = await failedSeedFetch.Content.ReadAsStringAsync();
-			if (fetchedFailedSeedsString == null)
-				return;
+				var fetchedFailedSeedsString = await failedSeedFetch.Content.ReadAsStringAsync();
+				if (fetchedFailedSeedsString == null)
+					return;
 
-			FailedSeeds = fetchedFailedSeedsString.Split('\n').ToHashSet();
+				FailedSeeds = fetchedFailedSeedsString.Split('\n').ToHashSet();
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine("Failed to fetch failed seeds: " + e.Message);
+			}
 			//Console.WriteLine(fetchedFailedSeedsString);
 
 		}
@@ -318,7 +325,7 @@ namespace TraitFinderApp.Client.Model
 					var asteroidQueryResults = new List<QueryAsteroidResult>(asteroidCount);
 					Dictionary<WorldPlacement, MixingSettingConfig>? mixingResults = null;
 
-					if(!isBaseGame)
+					if (!isBaseGame)
 						mixingResults = WorldGenMixing.DoWorldMixing(cluster, startSeed, true, false);
 					foreach (var asteroidWithIndex in asteroids)
 					{
