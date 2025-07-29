@@ -8,8 +8,12 @@
 
 <MudItem>
 	@{
-		int maxCount = Query.SelectedCluster.worldPlacements.Count;
-		var queryAsteroid = Query.AsteroidParams[Asteroid];
+	if (Query?.AsteroidParams.ContainsKey(Asteroid) == false)
+	{
+		return;
+	}
+	int maxCount = Query?.SelectedCluster?.worldPlacements?.Count ?? 0;
+	var queryAsteroid = Query?.AsteroidParams[Asteroid];
 	}
 	<MudPaper MinHeight="110px" MinWidth="420px" Elevation="5" Outlined Class="pa-2">
 		<MudStack Spacing="1" AlignItems="AlignItems.Start" Row Style="width:410px;" StretchItems="StretchItems.End">
@@ -20,104 +24,104 @@
 				<MudStack Row Wrap=Wrap.NoWrap Style="align-self:center" AlignItems="AlignItems.Center" StretchItems="StretchItems.Start" Spacing="1" Justify="Justify.Center">
 					<MudText Align="Align.Center" Typo="Typo.h6" Style="max-width:240px; text-overflow:ellipsis; white-space: nowrap; overflow:hidden">@L[@Asteroid.Name]</MudText>
 					@foreach (var annotation in AsteroidAnnotation.GetAnnotationsFor(Asteroid, Query.SelectedCluster))
-					{
-						<MudTooltip Text=@L[@annotation.GetTooltip()] Arrow Placement="Placement.Right" Style="justify-self:center">
-							<ChildContent>
-								<MudStack Row Style="align-self:center" AlignItems="AlignItems.Center" StretchItems="StretchItems.Start" Spacing="1" Justify="Justify.Center">
-									<MudImage ObjectPosition="ObjectPosition.Center" Src="@annotation.GetIcon()" Width="30" Height="30" ObjectFit="ObjectFit.Contain"></MudImage>
-								</MudStack>
-							</ChildContent>
-						</MudTooltip>
-					}
+								{
+					<MudTooltip Text=@L[@annotation.GetTooltip()] Arrow Placement="Placement.Right" Style="justify-self:center">
+						<ChildContent>
+							<MudStack Row Style="align-self:center" AlignItems="AlignItems.Center" StretchItems="StretchItems.Start" Spacing="1" Justify="Justify.Center">
+								<MudImage ObjectPosition="ObjectPosition.Center" Src="@annotation.GetIcon()" Width="30" Height="30" ObjectFit="ObjectFit.Contain"></MudImage>
+							</MudStack>
+						</ChildContent>
+					</MudTooltip>
+								}
 				</MudStack>
-				@if (queryAsteroid.CannotHaveTraits())
-				{
-					<MudText Align="Align.Center" Typo="Typo.body1">@L["This asteroid cannot generate any traits."]</MudText>
-				}
-				else
-				{
-					string maxCountText = string.Format(@L["Guaranteed traits ({0} max)"], queryAsteroid.GetMaxCountIncGuaranteed());
-
-					<!--Hack for visualizing traits by icon only-->
-					<MudStack Row Style="height:0px; margin-top:-4px; overflow:visible" Class="pl-4 pr-4">
-						<MudVirtualize Items="@queryAsteroid.GetCurrentGuaranteesIncFixed()" Context="trait">
-							<MudImage Style="position: relative; top: 12px" ObjectPosition="ObjectPosition.Center" Src="@trait.Image" Width="24" Height="24" ObjectFit="ObjectFit.Contain"></MudImage>
-						</MudVirtualize>
-					</MudStack>
-
-					<!--actual select for guaranteed traits-->
-
-					<MudSelect Disabled="@(Query.SelectedCluster.HasFixedCoordinate())"
-					FullWidth="true"
-					Variant="Variant.Outlined"
-					T=WorldTrait
-					MultiSelection
-					Clearable
-					Dense
-					Margin="Margin.Dense"
-					AnchorOrigin="Origin.BottomCenter"
-					TransformOrigin="Origin.TopCenter"
-					Label=@(maxCountText)
-					ToStringFunc="@((_)=> (queryAsteroid.GetCurrentGuaranteesIncFixed().Count()>0) ? "‎ ":string.Empty)"
-					MultiSelectionTextFunc="@((_)=> (queryAsteroid.GetCurrentGuaranteesIncFixed().Count()>0) ? "‎ ":string.Empty)"
-					@bind-SelectedValues="queryAsteroid.Guarantee">
-
-						<MudVirtualize Items="@queryAsteroid.GetAllWorldCompatibleTraits()" Context="trait">
-							@{
-								bool cannotToggle = !queryAsteroid.CanToggleGuaranteedTrait(trait);
-								//semi transparent if disabled;
-								string hexcode = "#" + trait.ColorHex + (cannotToggle ? "4d" : string.Empty);
+				@if (queryAsteroid?.CannotHaveTraits() ?? false)
+							{
+				<MudText Align="Align.Center" Typo="Typo.body1">@L["This asteroid cannot generate any traits."]</MudText>
 							}
+							else
+							{
+				string maxCountText = string.Format(@L["Guaranteed traits ({0} max)"], queryAsteroid.GetMaxCountIncGuaranteed());
 
-							<MudSelectItem Disabled="@cannotToggle" Value="@(trait)">
-								<MudStack Row AlignItems="AlignItems.Center" Spacing="1">
-									<MudImage ObjectPosition="ObjectPosition.Left" Src="@trait.Image" Width="24" Height="24" ObjectFit="ObjectFit.Contain"></MudImage>
-									<MudText Style="@($"color:{hexcode};")">@L[@trait.Name]</MudText>
-								</MudStack>
-							</MudSelectItem>
-						</MudVirtualize>
+				<!--Hack for visualizing traits by icon only-->
+				<MudStack Row Style="height:0px; margin-top:-4px; overflow:visible" Class="pl-4 pr-4">
+					<MudVirtualize Items="@queryAsteroid.GetCurrentGuaranteesIncFixed()" Context="trait">
+						<MudImage Style="position: relative; top: 12px" ObjectPosition="ObjectPosition.Center" Src="@trait.Image" Width="24" Height="24" ObjectFit="ObjectFit.Contain"></MudImage>
+					</MudVirtualize>
+				</MudStack>
 
-					</MudSelect>
+				<!--actual select for guaranteed traits-->
 
-					<!--Hack for visualizing traits by icon only-->
-					<MudStack Row Style="height:0px;margin-top:-4px;overflow-y:visible;max-width=286px" Justify="Justify.FlexStart" Class="pl-4 pr-4" Spacing="0">
-						<MudVirtualize Items="@queryAsteroid.Prohibit.ToList()" Context="trait">
-							@{
-								int marginAdjustment = -(24 - (210 / queryAsteroid.Prohibit.Count() - 1));
-								if (marginAdjustment > 1)
-									marginAdjustment = 4;
-								string marginAdjustmentString = $"position:relative;top:12px;margin-right:{marginAdjustment}px;"; ;
+				<MudSelect Disabled="@(Query.SelectedCluster.HasFixedCoordinate())"
+						   FullWidth="true"
+						   Variant="Variant.Outlined"
+						   T=WorldTrait
+						   MultiSelection
+						   Clearable
+						   Dense
+						   Margin="Margin.Dense"
+						   AnchorOrigin="Origin.BottomCenter"
+						   TransformOrigin="Origin.TopCenter"
+						   Label=@(maxCountText)
+						   ToStringFunc="@((_)=> (queryAsteroid.GetCurrentGuaranteesIncFixed().Count()>0) ? "‎ ":string.Empty)"
+						   MultiSelectionTextFunc="@((_)=> (queryAsteroid.GetCurrentGuaranteesIncFixed().Count()>0) ? "‎ ":string.Empty)"
+						   @bind-SelectedValues="queryAsteroid.Guarantee">
+
+					<MudVirtualize Items="@queryAsteroid.GetAllWorldCompatibleTraits()" Context="trait">
+						@{
+							bool cannotToggle = !queryAsteroid.CanToggleGuaranteedTrait(trait);
+							//semi transparent if disabled;
+							string hexcode = "#" + trait.ColorHex + (cannotToggle ? "4d" : string.Empty);
+						}
+
+						<MudSelectItem Disabled="@cannotToggle" Value="@(trait)">
+							<MudStack Row AlignItems="AlignItems.Center" Spacing="1">
+								<MudImage ObjectPosition="ObjectPosition.Left" Src="@trait.Image" Width="24" Height="24" ObjectFit="ObjectFit.Contain"></MudImage>
+								<MudText Style="@($"color:{hexcode};")">@L[@trait.Name]</MudText>
+							</MudStack>
+						</MudSelectItem>
+					</MudVirtualize>
+
+				</MudSelect>
+
+				<!--Hack for visualizing traits by icon only-->
+				<MudStack Row Style="height:0px;margin-top:-4px;overflow-y:visible;max-width=286px" Justify="Justify.FlexStart" Class="pl-4 pr-4" Spacing="0">
+					<MudVirtualize Items="@queryAsteroid.Prohibit.ToList()" Context="trait">
+						@{
+							int marginAdjustment = -(24 - (210 / queryAsteroid.Prohibit.Count() - 1));
+							if (marginAdjustment > 1)
+								marginAdjustment = 4;
+							string marginAdjustmentString = $"position:relative;top:12px;margin-right:{marginAdjustment}px;"; ;
+						}
+						<MudImage Style="@marginAdjustmentString" ObjectPosition="ObjectPosition.Center" Src="@trait.Image" Width="24" Height="24" ObjectFit="ObjectFit.Contain"></MudImage>
+					</MudVirtualize>
+				</MudStack>
+
+
+				<!--actual select for prohibited traits-->
+				<MudSelect FullWidth="true"
+						   Disabled="@(Query.SelectedCluster.HasFixedCoordinate())"
+						   Variant="Variant.Outlined"
+						   T=WorldTrait
+						   MultiSelection
+						   Dense
+						   Margin="Margin.Dense"
+						   AnchorOrigin="Origin.BottomCenter"
+						   TransformOrigin="Origin.TopCenter"
+						   Label=@L["Forbidden traits"]
+						   Clearable
+						   ToStringFunc="@((_)=> (queryAsteroid.Prohibit.Count()>0) ? "‎ ":string.Empty)"
+						   MultiSelectionTextFunc="@((_)=> (queryAsteroid.Prohibit.Count()>0) ? "‎ ":string.Empty)"
+						   @bind-SelectedValues="queryAsteroid.Prohibit">
+					<MudVirtualize Items="@queryAsteroid.GetAllWorldCompatibleTraits()" Context="trait">
+						<MudSelectItem Disabled="@(!queryAsteroid.CanToggleProhibitedTrait(trait))" Value="@(trait)">
+							<MudStack Row AlignItems="AlignItems.Center" Spacing="1">
+								<MudImage ObjectPosition="ObjectPosition.Left" Src="@trait.Image" Width="24" Height="24" ObjectFit="ObjectFit.Contain"></MudImage>
+								<MudText Style="@($"color:#{trait.ColorHex};")">@L[@trait.Name]</MudText>
+							</MudStack>
+						</MudSelectItem>
+					</MudVirtualize>
+				</MudSelect>
 							}
-							<MudImage Style="@marginAdjustmentString" ObjectPosition="ObjectPosition.Center" Src="@trait.Image" Width="24" Height="24" ObjectFit="ObjectFit.Contain"></MudImage>
-						</MudVirtualize>
-					</MudStack>
-
-
-					<!--actual select for prohibited traits-->
-					<MudSelect FullWidth="true"
-					Disabled="@(Query.SelectedCluster.HasFixedCoordinate())"
-					Variant="Variant.Outlined"
-					T=WorldTrait
-					MultiSelection
-					Dense
-					Margin="Margin.Dense"
-					AnchorOrigin="Origin.BottomCenter"
-					TransformOrigin="Origin.TopCenter"
-					Label=@L["Forbidden traits"]
-					Clearable					
-					ToStringFunc="@((_)=> (queryAsteroid.Prohibit.Count()>0) ? "‎ ":string.Empty)"
-					MultiSelectionTextFunc="@((_)=> (queryAsteroid.Prohibit.Count()>0) ? "‎ ":string.Empty)"
-					@bind-SelectedValues="queryAsteroid.Prohibit">
-						<MudVirtualize Items="@queryAsteroid.GetAllWorldCompatibleTraits()" Context="trait">
-							<MudSelectItem Disabled="@(!queryAsteroid.CanToggleProhibitedTrait(trait))" Value="@(trait)">
-								<MudStack Row AlignItems="AlignItems.Center" Spacing="1">
-									<MudImage ObjectPosition="ObjectPosition.Left" Src="@trait.Image" Width="24" Height="24" ObjectFit="ObjectFit.Contain"></MudImage>
-									<MudText Style="@($"color:#{trait.ColorHex};")">@L[@trait.Name]</MudText>
-								</MudStack>
-							</MudSelectItem>
-						</MudVirtualize>
-					</MudSelect>
-				}
 			</MudStack>
 		</MudStack>
 	</MudPaper>

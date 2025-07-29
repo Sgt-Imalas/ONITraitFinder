@@ -114,7 +114,7 @@ namespace TraitFinderApp.Client.Model
 
 	public class DataImport
 	{
-		public static HashSet<string> FailedSeeds;
+		public static HashSet<string> FailedSeeds = [];
 		public const string FAILED_SEEDS_URL = "https://ingest.mapsnotincluded.org/list-worldgen-failures";
 
 		public static void FetchOfflineData(string dataPath)

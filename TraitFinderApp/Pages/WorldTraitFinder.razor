@@ -362,10 +362,14 @@ else
 			{
 				dataCollection = DataImport.BaseGame;
 				Console.WriteLine("Is base game cluster");
+
+				DataImport.SetActiveVersion(Dlc.BASEGAME);
 			}
 			else if (DataImport.SpacedOut.clusters.Any(clusterLayout => clusterLayout.Prefix == prefix))
 			{
 				dataCollection = DataImport.SpacedOut;
+
+				DataImport.SetActiveVersion(Dlc.SPACEDOUT);
 				Console.WriteLine("Is spaced out cluster");
 			}
 			else

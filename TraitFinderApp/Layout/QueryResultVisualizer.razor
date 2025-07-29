@@ -173,13 +173,28 @@
 	{
 		string coordinate = QueryResult.GetCoordinate();
 		string request = string.Format(ExternalRoutes.API_URL_CHECK_MAP_EXISTS, coordinate);
+		try{
+			HttpResponseMessage? mapExistsRequest = await Http.GetAsync(request);
+			SeedExistsInMapExplorer = mapExistsRequest?.IsSuccessStatusCode ?? false;
 
-		HttpResponseMessage? mapExistsRequest = await Http.GetAsync(request);
-		SeedExistsInMapExplorer = mapExistsRequest?.IsSuccessStatusCode ?? false;
-
-		if (mapExistsRequest?.StatusCode == System.Net.HttpStatusCode.NotAcceptable)
+			if (mapExistsRequest?.StatusCode == System.Net.HttpStatusCode.NotAcceptable)
+			{
+				IsFailedSeed = true;
+			}
+		}
+		catch (HttpRequestException ex)
 		{
-			IsFailedSeed = true;
+			Console.WriteLine($"Error checking if seed exists in Map Explorer: {ex.Message}");
+			SeedExistsInMapExplorer = false;
+			IsFailedSeed = false;
+			_timer.Enabled = false;
+		}
+		catch (Exception ex)
+		{
+			Console.WriteLine($"Unexpected error: {ex.Message}");
+			SeedExistsInMapExplorer = false;
+			IsFailedSeed = false;
+			_timer.Enabled = false;
 		}
 
 		if (SeedExistsInMapExplorer)
@@ -224,23 +239,33 @@
 				Content = new StringContent(QueryResult.GetCoordinate())
 			};
 		request.Headers.Add("token", token);
-		var response = await Http.SendAsync(request);
+		try{
+			var response = await Http.SendAsync(request);
 
-		if (response.IsSuccessStatusCode)
+			if (response.IsSuccessStatusCode)
+			{
+				Snackbar.Add(L["Seed request for Map Explorer sent!"], Severity.Success);
+				SeedIsRequested = true;
+			}
+			else if (response.StatusCode == System.Net.HttpStatusCode.Conflict)
+			{
+				Snackbar.Add(L["Map was already requested, please be patient!"], Severity.Warning);
+				Console.WriteLine($"conflict: {response.StatusCode}");
+				SeedIsRequested = true;
+			}
+			else
+			{
+				Snackbar.Add(L["Seed request for Map Explorer failed!"], Severity.Error);
+				Console.WriteLine($"Request failed: {response.StatusCode}");
+			}
+		}	
+		catch (Exception ex)
 		{
-			Snackbar.Add(L["Seed request for Map Explorer sent!"], Severity.Success);
-			SeedIsRequested = true;
-		}
-		else if (response.StatusCode == System.Net.HttpStatusCode.Conflict)
-		{
-			Snackbar.Add(L["Map was already requested, please be patient!"], Severity.Warning);
-			Console.WriteLine($"conflict: {response.StatusCode}");
-			SeedIsRequested = true;
-		}
-		else
-		{
-			Snackbar.Add(L["Seed request for Map Explorer failed!"], Severity.Error);
-			Console.WriteLine($"Request failed: {response.StatusCode}");
+			Console.WriteLine($"Unexpected error: {ex.Message}");
+			SeedExistsInMapExplorer = false;
+			IsFailedSeed = false;
+			_timer.Enabled = false;
+			Snackbar.Add(L["Request not possible right now!"], Severity.Error);
 		}
 		_timer.Enabled = true;
 	}
