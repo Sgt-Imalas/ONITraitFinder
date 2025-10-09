@@ -238,7 +238,9 @@ namespace TraitFinderApp.Client.Model
 			var dlcs = new List<Dlc>(searchQuery.ActiveDlcs);
 			dlcs.RemoveAll(e => cluster.RequiredDlcs.Contains(e));
 
-			bool ceresCluster = cluster.RequiredDlcs.Contains(Dlc.FROSTYPLANET);
+			bool mixingQueryParams = searchQuery.HasMixingQueryParams();
+
+			Dictionary<MixingSettingConfig, HashSet<Asteroid>> validMixingTargets = searchQuery.FragmentMixingTargets;
 
 			List<QueryResult> results = new List<QueryResult>(targetCount);
 
@@ -326,51 +328,71 @@ namespace TraitFinderApp.Client.Model
 					Dictionary<WorldPlacement, MixingSettingConfig>? mixingResults = null;
 
 					if (!isBaseGame)
+					{
 						mixingResults = WorldGenMixing.DoWorldMixing(cluster, startSeed, true, false);
-					foreach (var asteroidWithIndex in asteroids)
-					{
-						var asteroid = asteroidWithIndex.Item1;
-						int offset = asteroidWithIndex.Item2;
 
-						if (!isBaseGame && mixingResults != null && mixingResults.TryGetValue(cluster.worldPlacements[offset], out var mixingResult))
+						if (mixingQueryParams)
 						{
-							asteroid = mixingResult.GetMixingAsteroid();
-
-							if (asteroid != null)
-								asteroidQueryResults.Add(new QueryAsteroidResult(searchQuery, asteroid, GetRandomTraits(startSeed + offset, asteroid), true));
+							foreach (var mixResult in mixingResults)
+							{
+								if (validMixingTargets.TryGetValue(mixResult.Value, out var validAsteroids))
+								{
+									if (!validAsteroids.Contains(mixResult.Key.Asteroid))
+									{
+										seedFailedQuery = true;
+										break;
+									}
+								}
+							}
 						}
-						else
-						{
-							if (TraitStorage.TryGetValue(asteroid, out var traitResults))
-								asteroidQueryResults.Add(new(searchQuery, asteroid, new(traitResults)));
-						}
-
 					}
-					var queryResult = new QueryResult()
+					if (!seedFailedQuery)
 					{
-						seed = startSeed,
-						cluster = cluster,
-						asteroidsWithTraits = asteroidQueryResults
-					};
-					if (isBaseGame)
-					{
-						int maxDistance = destinations.Select(x => x.distance).Max();
-
-
-						var bands = new DistanceBand[maxDistance + 1];
-						for (int i = 0; i < bands.Length; i++)
+						foreach (var asteroidWithIndex in asteroids)
 						{
-							bands[i] = new(i);
+							var asteroid = asteroidWithIndex.Item1;
+							int offset = asteroidWithIndex.Item2;
+
+							if (!isBaseGame && mixingResults != null && mixingResults.TryGetValue(cluster.worldPlacements[offset], out var mixingResult))
+							{
+								asteroid = mixingResult.GetMixingAsteroid();
+
+								if (asteroid != null)
+									asteroidQueryResults.Add(new QueryAsteroidResult(searchQuery, asteroid, GetRandomTraits(startSeed + offset, asteroid), true));
+							}
+							else
+							{
+								if (TraitStorage.TryGetValue(asteroid, out var traitResults))
+									asteroidQueryResults.Add(new(searchQuery, asteroid, new(traitResults)));
+							}
+
 						}
-
-
-						foreach (var entry in destinations)
+						var queryResult = new QueryResult()
 						{
-							bands[entry.distance].Destinations.Add(entry.Type);
+							seed = startSeed,
+							cluster = cluster,
+							asteroidsWithTraits = asteroidQueryResults
+						};
+						if (isBaseGame)
+						{
+							int maxDistance = destinations.Select(x => x.distance).Max();
+
+
+							var bands = new DistanceBand[maxDistance + 1];
+							for (int i = 0; i < bands.Length; i++)
+							{
+								bands[i] = new(i);
+							}
+
+
+							foreach (var entry in destinations)
+							{
+								bands[entry.distance].Destinations.Add(entry.Type);
+							}
+							queryResult.distanceBands = bands.ToList();
 						}
-						queryResult.distanceBands = bands.ToList();
+						results.Add(queryResult);
 					}
-					results.Add(queryResult);
 				}
 				++startSeed;
 			}

@@ -9,7 +9,7 @@
 			Dlc dlcFrom = mixing.DlcFrom;
 			string fillable = string.Format(@L["This remix setting requires the {0} DLC to be played."], @L[dlcFrom.Name]);
 		}
-		<MudImage Style="position:absolute;top:0px;right:0px;" Width="60" Height="60" Src="@dlcFrom.BannerImage" Alt="@L[@dlcFrom.Name]" />		
+		<MudImage Style="position:absolute;top:0px;right:0px;" Width="60" Height="60" Src="@dlcFrom.BannerImage" Alt="@L[@dlcFrom.Name]" />
 		<MudText Class="highlight-on-disabled:disabled" Align="Align.Center" Typo="Typo.body1">@mixing.Name</MudText>
 		<MudStack Row AlignItems="AlignItems.Center" Spacing="2" Wrap="Wrap.Wrap">
 			<MudTooltip Style="white-space: pre-line" Text="@mixing.Description">
@@ -19,13 +19,57 @@
 				</MudStack>
 			</MudTooltip>
 			<MudTooltip Style="white-space: pre-line" Text="@mixing.CurrentLevel.Description">
-				<MudToggleGroup T="SettingLevel" Vertical Value="@mixing.CurrentLevel" Disabled="@(!Query.CanToggleMixing(mixing))" ValueChanged="@(level => Query.ReevaluateMixingsOnChanged(mixing,level))">
+				<MudToggleGroup T="SettingLevel" Vertical Value="@mixing.CurrentLevel" Disabled="@(!Query.CanToggleMixing(mixing))" ValueChanged="@(level => Query.ReevaluateMixingsOnChanged(mixing, level))">
 					<MudToggleItem Text="@mixing.OffLevel.Name" Value="@(mixing.OffLevel)" />
 					<MudToggleItem Text="@mixing.ThirdLevel.Name" Value="@(mixing.ThirdLevel)" />
 					<MudToggleItem Text="@mixing.OnLevel.Name" Value="@(mixing.OnLevel)" />
 				</MudToggleGroup>
 			</MudTooltip>
 		</MudStack>
+
+		@if (mixing.SettingType == GameSettingType.WorldMixing)
+		{
+			var currentAsteroidTargets = Query.GetGuaranteedMixingTargets(mixing);
+			<!--Hack for visualizing asteroids by icon only-->
+			<MudStack Row Style="height:0px; margin-top:-4px; overflow:visible" Class="pl-4 pr-4">
+				<MudVirtualize Items="@currentAsteroidTargets" Context="asteroid">
+					<MudImage Style="position: relative; top: 16px" ObjectPosition="ObjectPosition.Center" Src="@asteroid.Image" Width="24" Height="24" ObjectFit="ObjectFit.Contain"></MudImage>
+					@if (currentAsteroidTargets.Count() == 1)
+					{
+						<MudText Style="@($"position: relative; top: 16px")">@L[asteroid.Name]</MudText>
+					}
+				</MudVirtualize>
+			</MudStack>
+
+
+			<MudSelect Disabled="@(mixing.CurrentLevel == mixing.OffLevel)"
+					   FullWidth="true"
+					   Style="padding-top:8px; width:244px"
+					   Variant="Variant.Outlined"
+					   T=Asteroid
+					   MultiSelection
+					   Clearable
+					   Dense
+					   Margin="Margin.Dense"
+					   AnchorOrigin="Origin.BottomCenter"
+					   TransformOrigin="Origin.TopCenter"
+					   Label=@(@L["Guarantee Remix on:"])
+					   ToStringFunc="@((_)=> (currentAsteroidTargets.Count()>0) ? "‎ ":string.Empty)"
+					   MultiSelectionTextFunc="@((_)=> (currentAsteroidTargets.Count()>0) ? "‎ ":string.Empty)"
+					   SelectedValues="@(currentAsteroidTargets)"
+					   SelectedValuesChanged="@((vals) => Query.SelectedMixingTargetsChanged(vals,mixing))">
+
+				<MudVirtualize Items="@Query.GetValidMixingAsteroids(mixing)" Context="mixingTargetAsteroid">
+
+					<MudSelectItem Value="@(mixingTargetAsteroid)">
+						<MudStack Row AlignItems="AlignItems.Center" Spacing="1">
+							<MudImage ObjectPosition="ObjectPosition.Left" Src="@mixingTargetAsteroid.Image" Width="24" Height="24" ObjectFit="ObjectFit.Contain"></MudImage>
+							<MudText>@L[@mixingTargetAsteroid.Name]</MudText>
+						</MudStack>
+					</MudSelectItem>
+				</MudVirtualize>
+			</MudSelect>
+		}
 	</MudPaper>
 </MudItem>
 

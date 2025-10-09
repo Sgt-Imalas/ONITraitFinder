@@ -21,12 +21,14 @@ namespace TraitFinderApp.Model.Mixing
 		public static Dictionary<Dlc, MixingSettingConfig> DlcMixingSettingsDict = new Dictionary<Dlc, MixingSettingConfig>(4);
 
 
-		public static void SetMixingStateWhere(Func<MixingSettingConfig,bool> ConditionFulfilled, bool enabled)
+		public static void SetMixingStateWhere(Func<MixingSettingConfig,bool> ConditionFulfilled, bool enabled) => DoForMixingsWhere(ConditionFulfilled, mixing => mixing.ForceEnabledState(enabled));
+		
+		public static void DoForMixingsWhere(Func<MixingSettingConfig, bool> ConditionFulfilled, Action<MixingSettingConfig> Action)
 		{
-			foreach(var mixing in AllMixingSettings)
+			foreach (var mixing in AllMixingSettings)
 			{
 				if (ConditionFulfilled(mixing))
-					mixing.ForceEnabledState(enabled);
+					Action(mixing);
 			}
 		}
 

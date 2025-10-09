@@ -6,12 +6,13 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using TraitFinderApp.Model.KleiClasses;
 using TraitFinderApp.Model.Mixing;
 using TraitFinderApp.Model.Search;
 
 namespace TraitFinderApp.Client.Model.Search
 {
-	public class SearchQuery: INotifyPropertyChanged
+	public class SearchQuery : INotifyPropertyChanged
 	{
 		public event PropertyChangedEventHandler PropertyChanged;
 		void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -32,6 +33,71 @@ namespace TraitFinderApp.Client.Model.Search
 		public bool HasFilters() => AsteroidParams != null && AsteroidParams.Any(param => param.Value.HasFilters()) || RequiredStarmapLocations.Any();
 		public bool HasStarmapFilters() => RequiredStarmapLocations != null && RequiredStarmapLocations.Any();
 
+		public Dictionary<MixingSettingConfig, HashSet<Asteroid>> FragmentMixingTargets = [];
+
+		public List<Asteroid> GetGuaranteedMixingTargets(MixingSettingConfig mixing)
+		{
+			if (mixing.GetMixingAsteroid() != null
+				&& FragmentMixingTargets.TryGetValue(mixing, out var targets)
+				&& targets != null)
+			{
+				return targets.ToList();
+			}
+			return new List<Asteroid>();
+		}
+		public void ClearMixingTargets(MixingSettingConfig? mixing = null)
+		{
+			if (mixing != null)
+				FragmentMixingTargets.Remove(mixing);
+			else
+				FragmentMixingTargets.Clear();
+		}
+		public bool HasMixingQueryParams() => FragmentMixingTargets != null && FragmentMixingTargets.Any();
+
+
+		public void SelectedMixingTargetsChanged(IEnumerable<Asteroid> newTargets, MixingSettingConfig mixing)
+		{
+			if (mixing.GetMixingAsteroid() != null)
+			{
+				if(newTargets.Any())
+					FragmentMixingTargets[mixing] = newTargets.ToHashSet();
+				else
+					FragmentMixingTargets.Remove(mixing);
+			}
+			else
+			{
+				Console.WriteLine("Mixing " + mixing.Name + " does not have a mixing asteroid, cannot set targets.");
+			}
+			ClearQueryResults();
+			OnPropertyChanged(nameof(FragmentMixingTargets));
+		}
+		public List<Asteroid> GetValidMixingAsteroids(MixingSettingConfig mixing)
+		{
+			if (mixing.GetMixingAsteroid() == null || SelectedCluster == null)
+				return [];
+			return WorldGenMixing.GetValidMixingTargets(SelectedCluster, mixing);
+		}
+		public bool InvalidAsteroidMixingSelection()
+		{
+			if (FragmentMixingTargets.Count <= 1)
+				return false;
+
+			int count = FragmentMixingTargets.Keys.Count();
+			HashSet<Asteroid> selected = [];
+
+			foreach(var entry in FragmentMixingTargets)
+			{
+				if(entry.Value.Count == 1)
+				{
+					var singleAsteroidSelected = entry.Value.First();
+					if (selected.Contains(singleAsteroidSelected))
+						return true;
+					selected.Add(entry.Value.First());
+				}
+			}
+			return false;
+		}
+
 
 		public IEnumerable<VanillaStarmapLocation> RequiredStarmapLocations
 		{
@@ -41,7 +107,7 @@ namespace TraitFinderApp.Client.Model.Search
 			}
 		}
 		private IEnumerable<VanillaStarmapLocation> _requiredStarmapLocations = new HashSet<VanillaStarmapLocation>(16);
-		
+
 		public int CurrentQuerySeed = 1;
 
 		public int QueryTarget = 5;
@@ -106,6 +172,7 @@ namespace TraitFinderApp.Client.Model.Search
 			SelectedCluster = cluster;
 			InitializeMixingsForCluster();
 			InitializeAsteroidQueryParams();
+			ClearMixingTargets();
 		}
 		public bool HasClusterSelected()
 		{
@@ -229,9 +296,20 @@ namespace TraitFinderApp.Client.Model.Search
 				}
 				else
 				{
-					SetDlcEnabled(changedMixing.DlcFrom, false); 
-					GameSettingsInstance.SetMixingStateWhere(mixing => (mixing != changedMixing && mixing.DlcFrom == changedMixing.DlcFrom), false);
+					SetDlcEnabled(changedMixing.DlcFrom, false);
+
+					var disableDependingMixing = (MixingSettingConfig mixing) =>
+					{
+						mixing.ForceEnabledState(false);
+						ClearMixingTargets(mixing);
+					};
+
+					GameSettingsInstance.DoForMixingsWhere(mixing => (mixing != changedMixing && mixing.DlcFrom == changedMixing.DlcFrom), disableDependingMixing);
 				}
+			}
+			if (changedMixing.GetMixingAsteroid() != null && !changedMixing.IsActive())
+			{
+				ClearMixingTargets(changedMixing);
 			}
 			ClearQueryResults();
 		}
@@ -239,7 +317,7 @@ namespace TraitFinderApp.Client.Model.Search
 
 		public void SetMixingEnabled(MixingSettingConfig mixingToToggle, bool enabled)
 		{
-			if(!IsMixingAllowedByCluster(mixingToToggle))
+			if (!IsMixingAllowedByCluster(mixingToToggle))
 			{
 				Console.WriteLine($"Mixing {mixingToToggle.Name} is not allowed in the current cluster selection.");
 				return;
@@ -253,7 +331,7 @@ namespace TraitFinderApp.Client.Model.Search
 					{
 						ActiveDlcs.Add(mixingToToggle.DlcFrom);
 					}
-				}				
+				}
 			}
 			else
 			{
@@ -262,7 +340,7 @@ namespace TraitFinderApp.Client.Model.Search
 				{
 					SetDlcEnabled(mixingToToggle.DlcFrom, false);
 
-					GameSettingsInstance.SetMixingStateWhere(mixing => (mixing.DlcFrom == mixingToToggle.DlcFrom), false);					
+					GameSettingsInstance.SetMixingStateWhere(mixing => (mixing.DlcFrom == mixingToToggle.DlcFrom), false);
 				}
 			}
 		}
@@ -274,7 +352,7 @@ namespace TraitFinderApp.Client.Model.Search
 			return ActiveDlcs.Contains(mixing.DlcFrom) && IsMixingAllowedByCluster(mixing);
 		}
 		public bool IsMixingEnabled(MixingSettingConfig mixing) => mixing.IsActive();
-		
+
 		public bool IsDlcRequiredByCluster(Dlc dlc)
 		{
 			if (SelectedCluster != null)
@@ -287,7 +365,7 @@ namespace TraitFinderApp.Client.Model.Search
 		{
 			if (mixing.SettingType == GameSettingType.WorldMixing && !SpacedOutSelected())
 				return false;
-			if (mixing.SettingType == GameSettingType.WorldMixing && (SelectedCluster?.RequiredDlcs.Contains(mixing.DlcFrom)??false))
+			if (mixing.SettingType == GameSettingType.WorldMixing && (SelectedCluster?.RequiredDlcs.Contains(mixing.DlcFrom) ?? false))
 				return false;
 
 			var forbiddenTags = mixing.ForbiddenClusterTags?.ToHashSet() ?? new HashSet<string>();

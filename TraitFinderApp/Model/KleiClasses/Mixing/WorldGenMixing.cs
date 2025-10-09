@@ -123,6 +123,47 @@ namespace TraitFinderApp.Model.KleiClasses
 
 			return null;
 		}
+
+		public static List<Asteroid> GetValidMixingTargets(ClusterLayout layout, MixingSettingConfig mixingSettings)
+		{
+			List<Asteroid> list = new List<Asteroid>();
+			var mixingAsteroid = mixingSettings.GetMixingAsteroid();
+			if (mixingAsteroid == null)
+			{
+				return list;
+			}
+
+			foreach (WorldPlacement worldPlacement in layout.worldPlacements)
+			{
+				if (!worldPlacement.IsMixingPlacement())
+				{
+					continue;
+				}
+				bool validTarget = true;
+				foreach (string requiredTag in worldPlacement.worldMixing.requiredTags)
+				{
+					if (!mixingAsteroid.worldTags.Contains(requiredTag))
+					{
+						validTarget = false;
+						break;
+					}
+				}
+				foreach (string forbiddenTag in worldPlacement.worldMixing.forbiddenTags)
+				{
+					if (mixingAsteroid.worldTags.Contains(forbiddenTag))
+					{
+						validTarget = false;
+						break;
+					}
+				}
+				if (validTarget && !list.Contains(worldPlacement.Asteroid))
+				{
+					list.Add(worldPlacement.Asteroid);
+				}
+			}
+			return list;
+		}
+
 		public static bool ValidateWorldMixingOptions(List<WorldMixingOption> options, bool isRunningWorldgenDebug, bool muteErrors)
 		{
 			List<string> list = new List<string>();

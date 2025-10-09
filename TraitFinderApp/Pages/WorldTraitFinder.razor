@@ -279,7 +279,7 @@ else
 
 
 	<div style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
-		<MudLink Class="query-results" hidden="@(Query == null || !Query.HasClusterSelected())" Target="_blank" Style="text-align:center;overflow: visible;height: 0px;" Underline="Underline.Always" Href="https://github.com/MapsNotIncluded/ONITraitFinder" Typo="Typo.subtitle2" Color="Color.Default">@credit</MudLink>
+		<MudLink Class="query-results" hidden="@(Query == null || !Query.HasClusterSelected())" Target="_blank" Style="text-align:center;overflow: visible;height: 0px;" Underline="Underline.Always" Href="https://github.com/Sgt-Imalas/ONITraitFinder" Typo="Typo.subtitle2" Color="Color.Default">@credit</MudLink>
 		@if (hasTranslationAuthor)
 		{
 			<MudText hidden="@(Query == null || !Query.HasClusterSelected())" Target="_blank" Style="text-align:center;overflow: visible;height: 0px; margin-left:30px" Underline="Underline.Always" Typo="Typo.subtitle2" Color="Color.Default">@translationBy</MudText>
@@ -413,6 +413,12 @@ else
 	bool overlay_visible;
 	public async void StartSearching()
 	{
+		if (Query != null && Query.InvalidAsteroidMixingSelection())
+		{
+			Snackbar.Add(@L["You cannot have multiple different remix asteroids replace the same target asteroid!"], Severity.Error);
+			return;
+		}
+
 		if (Query != null)
 			await Query.StartSearching();
 
