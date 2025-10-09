@@ -16,6 +16,20 @@ string DataPath = System.IO.Path.GetFullPath("../../../../TraitFinderApp/wwwroot
 Console.WriteLine("DataPath: " + DataPath);
 DataImport.FetchOfflineData(DataPath);
 
+
+GameSettingsInstance.ParseMixingSettingsCode("8Q1U5");
+foreach (var mixing in GameSettingsInstance.AllMixingSettings)
+{
+	Console.WriteLine("Mixing: " + mixing.Name + " - " + mixing.GetLevel().Name);
+}
+Console.WriteLine();
+Console.WriteLine();
+GameSettingsInstance.ParseMixingSettingsCode("L72U5");
+foreach (var mixing in GameSettingsInstance.AllMixingSettings)
+{
+	Console.WriteLine("Mixing: " + mixing.Name + " - " + mixing.GetLevel().Name);
+}
+return;
 HashSet<string> possibleCombinations = IterateMixings();
 StringBuilder sb = new();
 foreach(var combination in possibleCombinations)
