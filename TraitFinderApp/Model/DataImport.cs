@@ -13,6 +13,8 @@ using OniStarmapGenerator.Model;
 using static MudBlazor.Icons.Custom;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using TraitFinderApp.Model.Mixing;
+using System.Text.RegularExpressions;
+using System.ComponentModel.Design;
 
 namespace TraitFinderApp.Client.Model
 {
@@ -102,12 +104,39 @@ namespace TraitFinderApp.Client.Model
 	public class StarmapData
 	{
 		public Dictionary<string, VanillaStarmapLocation> Locations;
-		public Dictionary<string, VanillaStarmapLocation> LocationsWithoutFP;
+		public Dictionary<string, VanillaStarmapLocation> VanillaLocations;
+		public Dictionary<Dlc, Dictionary<string, VanillaStarmapLocation>> AllDlcLocations = [];
 		public void MapGameData()
 		{
+			Console.WriteLine("Mapping Starmap destinations");
 			Locations.Remove("SaltDesertPlanet"); //not found in starmap gen, disable it
-			LocationsWithoutFP = new(Locations);
-			LocationsWithoutFP.Remove("DLC2CeresSpaceDestination");
+			var dlcRegex = new Regex("DLC.");
+			foreach (var location in Locations)
+			{
+				string locationId = location.Key;
+				if (dlcRegex.IsMatch(locationId))
+				{
+					var dlcId = dlcRegex.Match(locationId).Value;
+					if(Dlc.TryGetDlc(dlcId, out var dlc))
+					{
+						Console.WriteLine(locationId + " is part of dlc: " + dlc.Name);
+						if (!AllDlcLocations.TryGetValue(dlc, out var dlcLocations))
+						{
+							dlcLocations = new Dictionary<string, VanillaStarmapLocation>();
+							AllDlcLocations[dlc] = dlcLocations;
+						}
+						dlcLocations.Add(locationId,location.Value);
+					}
+				}
+			}
+
+			VanillaLocations = new(Locations);
+			foreach(var dlcLocationList in AllDlcLocations.Values)
+			{
+				foreach (var loc in dlcLocationList)
+					VanillaLocations.Remove(loc.Key);
+			}
+
 		}
 
 	}
@@ -219,9 +248,15 @@ namespace TraitFinderApp.Client.Model
 		public static StarmapData StarmapImport;
 		public static List<VanillaStarmapLocation> GetVanillaStarmapLocations(List<Dlc> ActiveDlcs, List<Dlc> requiredDlcs)
 		{
-			if (!ActiveDlcs.Contains(Dlc.FROSTYPLANET) || requiredDlcs.Contains(Dlc.FROSTYPLANET)) //no ceres destination for ceres itself 
-				return StarmapImport.LocationsWithoutFP.Values.ToList();
-			return StarmapImport.Locations.Values.ToList();
+			var validLocations = StarmapImport.VanillaLocations.Values.ToList();
+			foreach (var dlcLocationList in StarmapImport.AllDlcLocations)
+			{
+				var dlc = dlcLocationList.Key;
+				if(ActiveDlcs.Contains(dlc) && !requiredDlcs.Contains(dlc))
+					validLocations.AddRange(dlcLocationList.Value.Values);
+			}
+
+			return validLocations;
 		}
 
 

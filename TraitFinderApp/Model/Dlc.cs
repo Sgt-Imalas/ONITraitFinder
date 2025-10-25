@@ -19,6 +19,15 @@ namespace TraitFinderApp.Client.Model
 		public Color Color = Color.White; //default white, can be used for UI elements
 		public List<spaceDestinations> extraSpaceDestinationsBasegame = [];
 
+		public static bool TryGetDlc(string id, out Dlc dlc)
+		{
+			dlc = null;
+			if (!id.Contains("_ID"))
+				id += "_ID";
+			return KeyValues.TryGetValue(id, out dlc);
+		}
+
+
 		public static readonly Dlc BASEGAME = new Dlc()
 		{
 			ID = BASEGAME_ID,
