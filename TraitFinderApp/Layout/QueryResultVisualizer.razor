@@ -247,6 +247,11 @@
 				Snackbar.Add(L["Seed request for Map Explorer sent!"], Severity.Success);
 				SeedIsRequested = true;
 			}
+			else if (response.StatusCode == System.Net.HttpStatusCode.TooManyRequests)
+			{
+				Snackbar.Add(L["You are being rate limited, please wait until your current requests have been processed"], Severity.Warning);
+				Console.WriteLine($"conflict: {response.StatusCode}");
+			}
 			else if (response.StatusCode == System.Net.HttpStatusCode.Conflict)
 			{
 				Snackbar.Add(L["Map was already requested, please be patient!"], Severity.Warning);
