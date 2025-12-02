@@ -1,0 +1,179 @@
+﻿@using Microsoft.AspNetCore.Components
+@using MudBlazor
+@using TraitFinderApp.Client.Model
+@using TraitFinderApp.Model.KleiClasses.Util
+@using TraitFinderApp.Model.Search
+
+<MudStack Row AlignItems="AlignItems.Center" Justify="Justify.Center" >
+	@{
+		string height = HeightPxpx.ToString() + "px";
+		string width = WidthPxpx.ToString() + "px";
+		Console.WriteLine("Width: " + width);
+	}
+	<MudPaper MinHeight="@height" MinWidth="@width" Class="page-background-class">
+
+		<MudItem Style=@($"position:relative; width:{width}px; height:{height}px;")>
+			@foreach (var cell in Cells)
+			{
+				if (cell.itemID == null)
+				{
+					var pos = AxialToPixel(cell, HexSize);
+					var style = $"position:absolute; left:{pos.x}px; top:{pos.y}px;";
+
+					<MudPaper Elevation="3"
+							  Class="@($"hex transparent-paper")"
+							  Style="@style">
+						<MudImage ObjectFit="ObjectFit.Contain" Width="45" Height="45" Src="icons/hex.png" Alt="hex" />
+					</MudPaper>
+				}
+				else
+				{
+					var pos = AxialToPixel(cell, HexSize);
+					var style = $"position:absolute; left:{pos.x + 7}px; top:{pos.y + 7}px;";
+					var icon = GetIconForClustermapEntity(cell.itemID);
+					var name = GetNameForClustermapEntity(cell.itemID);
+
+					<MudPaper Elevation="4"
+							  Class="@($"transparent-paper")"
+							  Style="@style">
+						<MudTooltip Text="@name" Style="@style">
+							<MudImage ObjectFit="ObjectFit.Contain" Width="31" Height="31" Src="@icon" Alt="@cell.itemID" />
+						</MudTooltip>
+					</MudPaper>
+				}
+			}
+		</MudItem>
+	</MudPaper>
+</MudStack>
+
+<style>
+	.page-background-class {
+		background-image: url("/icons/astroidselectscreen_01.png");
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+	.hex {
+		width: var(--hex-w);
+		height: var(--hex-h);
+		clip-path: polygon(50% -5%, 97% 25%, 97% 75%, 50% 105%, 3% 75%, 3% 25%);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		cursor: pointer;
+		user-select: none;
+	}
+
+	.transparent-paper {
+		background-color: transparent !important;
+		box-shadow: none;
+	}
+
+	.hex.selected {
+		outline: 2px solid #1976d2;
+	}
+</style>
+
+@code {
+	[Parameter] public double HexSize { get; set; } = 24; // radius in px
+	[Parameter] public RenderFragment<Hex>? ChildContent { get; set; }
+	[Parameter] public EventCallback<Hex> OnSelect { get; set; }
+	[Parameter] public SO_StarmapLayout GeneratedLayout { get; set; }
+	public int Radius => GeneratedLayout.Origin.numRings-1;
+
+	Hex? Selected;
+	List<Hex> Cells = new();
+	double WidthPxpx;
+	double HeightPxpx;
+
+	protected override Task OnInitializedAsync()
+	{
+		ComputeLayoutSize();
+		return base.OnInitializedAsync();
+	}
+	public string GetIconForClustermapEntity(string id)
+	{
+		if (DataImport.ClusterMapImport.TryGet(id, out var pOI_Data))
+		{
+			return pOI_Data.Image;
+		}
+		else if (DataImport.SpacedOut.asteroidsDict.TryGetValue(id, out var asteroid))
+		{
+			return asteroid.Image;
+		}
+		return "icons/potato.webp";
+	}
+	public string GetNameForClustermapEntity(string id)
+	{
+		if (DataImport.ClusterMapImport.TryGet(id, out var pOI_Data))
+		{
+			return pOI_Data.Name;
+		}
+		else if (DataImport.SpacedOut.asteroidsDict.TryGetValue(id, out var asteroid))
+		{
+			return asteroid.Name;
+		}
+		return "icons/potato.webp";
+	}
+
+	protected override void OnInitialized()
+	{
+		BuildGrid();
+		ComputeLayoutSize();
+	}
+
+	void BuildGrid()
+	{
+		Cells.Clear();
+		for (int q = -Radius; q <= Radius; q++)
+		{
+			for (int r = -Radius; r <= Radius; r++)
+			{
+				if (Math.Abs(q + r) <= Radius)
+					Cells.Add(new Hex(q, r));
+			}
+		}
+		foreach (var entry in GeneratedLayout?.OverridePlacements)
+		{
+			var pos = entry.Key;
+
+			Cells.Add(new Hex(pos.R, pos.Q, entry.Value));
+		}
+	}
+	void ComputeLayoutSize()
+	{
+		// Rough bounding box (safe padding)
+		WidthPxpx = HexSize * (Math.Sqrt(3) * (2 * Radius + 2));
+		HeightPxpx = HexSize * (1.75 * (2 * Radius + 2));
+
+		// forward width/height to CSS variables
+		var w = 2 * HexSize;
+		var h = Math.Sqrt(3) * HexSize;
+		// set global CSS vars dynamically
+		var hexW = $"{w}px";
+		var hexH = $"{h}px";
+		// Blazor cannot set global :root vars directly; users should place:
+		// :root { --hex-w: 60px; --hex-h: 52px; }
+		// or replace the CSS above with your own inline values if preferred.
+	}
+
+	async void Select(Hex h)
+	{
+		Selected = h;
+		await OnSelect.InvokeAsync(h);
+		StateHasChanged();
+	}
+
+	public record Hex(int Q, int R, string? itemID = null);
+	public (double x, double y) AxialToPixel(Hex h, double size)
+	{
+		double xStep = size * Math.Sqrt(3) / 2;
+		double yStep = size * (3.0 / 2);
+
+		double x = size * (Math.Sqrt(3) * h.Q + Math.Sqrt(3) / 2 * h.R);
+		double y = size * (3.0 / 2 * h.R);
+		return (x + WidthPxpx / 2 - xStep, y + HeightPxpx / 2);
+	}
+
+}
+

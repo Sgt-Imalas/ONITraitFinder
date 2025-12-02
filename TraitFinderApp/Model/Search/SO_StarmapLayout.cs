@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MudBlazor;
+using System;
 using System.Diagnostics;
+using System.Diagnostics.Metrics;
 using System.Numerics;
 using TraitFinderApp.Client.Model;
 using TraitFinderApp.Model.KleiClasses;
@@ -15,10 +17,31 @@ namespace TraitFinderApp.Model.Search
 		private bool _generationPossible = false;
 		public string FailedGenerationPlanetId => _failedGenerationPlanetId;
 		private string _failedGenerationPlanetId = string.Empty;
+		public ClusterLayout Origin { get; private set; }
 
+		public Dictionary<string, string> MixingOverrides = [];
+
+		public SO_StarmapLayout(ClusterLayout layout, int seed, string mixingCode)
+		{
+			AssignClusterLocations(layout, seed, mixingCode);
+			var mixingResults = WorldGenMixing.DoWorldMixing(layout, seed, true, false);
+			foreach(var result in mixingResults)
+			{
+				MixingOverrides[result.Key.world] = result.Value.WorldMixing;
+			}
+			foreach(var pos in OverridePlacements.Keys.ToArray())
+			{
+				var potentialMixingTarget = OverridePlacements[pos];
+				if (MixingOverrides.TryGetValue(potentialMixingTarget, out var remixAsteroid))
+				{
+					OverridePlacements[pos] = remixAsteroid;
+				}
+			}
+		}
 
 		public bool AssignClusterLocations(ClusterLayout clusterLayout, int seed, string mixingCode = null)
 		{
+			Origin = clusterLayout;
 			_failedGenerationPlanetId = string.Empty;
 			//fields native to Cluster:
 			var myRandom = new SeededRandom(seed);
@@ -33,7 +56,7 @@ namespace TraitFinderApp.Model.Search
 			{
 				foreach(var mixing in GameSettingsInstance.GetActiveMixingsFor(mixingCode))
 				{
-					if (mixing.IsDlcMixing())
+					if (mixing.IsDlcMixing() && !clusterLayout.RequiredDlcs.Contains(mixing.DlcFrom))
 					{
 						var additionalPois = mixing.GetPOIs_SO();
 						if (additionalPois != null)

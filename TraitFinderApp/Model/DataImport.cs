@@ -103,6 +103,25 @@ namespace TraitFinderApp.Client.Model
 			return _compatibleTraits[asteroid];
 		}
 	}
+
+	public class ClusterMapData
+	{
+		Dictionary<string, POI_Data> _so_POIs = [];
+		public bool TryGet(string id, out POI_Data data) => _so_POIs.TryGetValue(id,out data);
+		public static ClusterMapData Import(string data)
+		{
+			ClusterMapData mapData = new ClusterMapData();
+			mapData._so_POIs = JsonConvert.DeserializeObject<Dictionary<string, POI_Data>>(data);
+			DebugLogger.Log(mapData._so_POIs.Count + " spaced out pois loaded");
+			return mapData;
+		}
+		internal void MapGameData()
+		{
+
+			DebugLogger.Log("spaced out pois mapped");
+		}
+	}
+
 	public class StarmapData
 	{
 		public Dictionary<string, VanillaStarmapLocation> Locations;
@@ -159,6 +178,10 @@ namespace TraitFinderApp.Client.Model
 			var starmapjson = System.IO.File.ReadAllText(Path.Combine(dataPath, "BasegameStarmapDestinations.json"));
 			StarmapImport = JsonConvert.DeserializeObject<StarmapData>(starmapjson);
 			StarmapImport.MapGameData();
+			var clustermapjson = System.IO.File.ReadAllText(Path.Combine(dataPath, "ClustermapDestinations.json"));
+			ClusterMapImport = ClusterMapData.Import(clustermapjson);
+			ClusterMapImport.MapGameData();
+
 			var mixingjson = System.IO.File.ReadAllText(Path.Combine(dataPath, "mixing_data.json"));
 			GameSettingsInstance.AllMixingSettings = JsonConvert.DeserializeObject<List<MixingSettingConfig>>(mixingjson);
 			GameSettingsInstance.InitMixingSettings();
@@ -230,6 +253,18 @@ namespace TraitFinderApp.Client.Model
 			StarmapImport = basegame_starmap;
 			basegame_starmap.MapGameData();
 		}
+		public static async Task FetchClustermapDestinationData(HttpClient Http)
+		{
+			var spacedout_clustermap_file = await Http.GetAsync("./data/ClustermapDestinations.json");
+			if (spacedout_clustermap_file == null)
+				return;
+			var spacedout_clustermap_json = await spacedout_clustermap_file.Content.ReadAsStringAsync();
+			if (spacedout_clustermap_json == null)
+				return;
+
+			ClusterMapImport = ClusterMapData.Import(spacedout_clustermap_json);
+			ClusterMapImport.MapGameData();
+		}
 
 		public static async Task FetchMixingData(HttpClient Http)
 		{
@@ -246,7 +281,7 @@ namespace TraitFinderApp.Client.Model
 			GameSettingsInstance.AllMixingSettings = mixing_settings;
 			GameSettingsInstance.InitMixingSettings();
 		}
-
+		public static ClusterMapData ClusterMapImport;
 		public static StarmapData StarmapImport;
 		public static List<VanillaStarmapLocation> GetVanillaStarmapLocations(List<Dlc> ActiveDlcs, List<Dlc> requiredDlcs)
 		{
@@ -392,10 +427,11 @@ namespace TraitFinderApp.Client.Model
 
 							if (!isBaseGame && mixingResults != null && mixingResults.TryGetValue(cluster.worldPlacements[offset], out var mixingResult))
 							{
+								var original = asteroid;
 								asteroid = mixingResult.GetMixingAsteroid();
 
 								if (asteroid != null)
-									asteroidQueryResults.Add(new QueryAsteroidResult(searchQuery, asteroid, GetRandomTraits(startSeed + offset, asteroid), true));
+									asteroidQueryResults.Add(new QueryAsteroidResult(searchQuery, asteroid, GetRandomTraits(startSeed + offset, asteroid), original));
 							}
 							else
 							{

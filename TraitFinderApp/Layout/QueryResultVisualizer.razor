@@ -3,6 +3,7 @@
 @using System.Net.Http.Headers
 @using System.Timers
 @using TraitFinderApp.Client.Model.Search
+@using TraitFinderApp.Model.Mixing
 @using TraitFinderApp.Model.Search
 @using Microsoft.AspNetCore.Components.WebAssembly.Hosting
 @inject ISnackbar Snackbar;
@@ -11,6 +12,7 @@
 @inject HttpClient Http
 @inject IJSRuntime JSRuntime;
 @inject IWebAssemblyHostEnvironment Env
+@inject IDialogService DialogService
 
 <MudItem>
 	<MudPaper Outlined Elevation="10" Class="pa-1" Width="300px">
@@ -87,7 +89,7 @@
 			</MudVirtualize>
 			@if ((QueryResult?.cluster?.ForbiddenDlcs?.Contains(Client.Model.Dlc.SPACEDOUT) ?? false) || (QueryResult?.cluster?.RequiredDlcs?.Contains(Client.Model.Dlc.BASEGAME) ?? false))
 			{
-				<MudButton FullWidth Variant="Variant.Outlined" Color="Color.Default" OnClick="@ToggleStarmap">@L[!QueryResult.ShowStarmap ? "Show Starmap" : "Hide Starmap"]</MudButton>
+				<MudButton FullWidth Variant="Variant.Outlined" Color="Color.Default" OnClick="@ToggleStarmap_BaseGame">@L[!QueryResult.ShowStarmap ? "Show Starmap" : "Hide Starmap"]</MudButton>
 
 				if (QueryResult.ShowStarmap)
 				{
@@ -123,6 +125,10 @@
 					</MudStack>
 				}
 			}
+			else
+			{
+				<MudButton FullWidth Variant="Variant.Outlined" Color="Color.Default" OnClick="@ShowStarmap_SpacedOut">@L["Show Starmap"]</MudButton>
+			}
 		</MudStack>
 	</MudPaper>
 </MudItem>
@@ -154,7 +160,21 @@
 	[EditorRequired]
 	public SearchQuery SearchQuery { get; set; }
 
-	private void ToggleStarmap() => QueryResult.ShowStarmap = !QueryResult.ShowStarmap;
+	private Task ShowStarmap_SpacedOut()
+	{
+		var options = new DialogOptions
+		{
+			MaxWidth = MaxWidth.Large,			
+			//FullWidth = true,
+			CloseOnEscapeKey = true,
+			NoHeader = true
+
+		};
+		var dialogueParams = new DialogParameters();
+		dialogueParams.Add("GeneratedLayout", new SO_StarmapLayout(_queryResult.cluster, _queryResult.seed, GameSettingsInstance.GetMixingSettingsCode()));
+		return DialogService.ShowAsync<HexGrid>(L["Starmap"], dialogueParams, options);
+	}
+	private void ToggleStarmap_BaseGame() => QueryResult.ShowStarmap = !QueryResult.ShowStarmap;
 	private bool SeedExistsInMapExplorer = false;
 	private bool IsFailedSeed = false;
 	private bool SeedIsRequested = false;
