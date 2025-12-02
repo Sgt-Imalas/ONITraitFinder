@@ -1,6 +1,11 @@
 ﻿
+using OniStarmapGenerator.Model.Search;
+using System.Collections.Generic;
 using System.Drawing;
 using TraitFinderApp.Model.KleiClasses;
+using TraitFinderApp.Model.KleiClasses.WorldGen;
+using TraitFinderApp.Model.Mixing;
+using static MudBlazor.CategoryTypes;
 using static TraitFinderApp.Client.Model.DataImport;
 
 namespace TraitFinderApp.Client.Model
@@ -17,7 +22,7 @@ namespace TraitFinderApp.Client.Model
 		public string Image;
 		public string BannerImage;
 		public Color Color = Color.White; //default white, can be used for UI elements
-		public List<spaceDestinations> extraSpaceDestinationsBasegame = [];
+										  //public List<spaceDestinations> extraSpaceDestinationsBasegame = [];
 
 		public static bool TryGetDlc(string id, out Dlc dlc)
 		{
@@ -49,9 +54,9 @@ namespace TraitFinderApp.Client.Model
 			Name = "Frosty Planet Pack",
 			Image = "./images/logos/logo_frosty_planet_banner.webp",
 			BannerImage = "./images/logos/dlc2_banner.png",
-			extraSpaceDestinationsBasegame = [new("DLC2CeresSpaceDestination", 3, 10)],
+			//extraSpaceDestinationsBasegame = [new("DLC2CeresSpaceDestination", 3, 10)],
 			Color = UnityColor.Get(0.003921569f, 11f / 15f, 1f) //(80,187,255) //blue
-		}; 
+		};
 		public static readonly Dlc BIONICBOOSTER = new Dlc()
 		{
 			ID = BIONICBOOSTER_ID,
@@ -68,7 +73,7 @@ namespace TraitFinderApp.Client.Model
 			Name = "Prehistoric Planet Pack",
 			Image = "./images/logos/Prehistoric_Planet_Banner.png",
 			BannerImage = "./images/logos/dlc4_banner.png",
-			extraSpaceDestinationsBasegame = [new("DLC4PrehistoricSpaceDestination", 3, 10)],
+			//extraSpaceDestinationsBasegame = [new("DLC4PrehistoricSpaceDestination", 3, 10)],
 			Color = UnityColor.Get(16f / 51f, 0.6745098f, 27f / 85f)//(80,172,81) //green
 		};
 		public static IEnumerable<Dlc> Values
@@ -91,11 +96,16 @@ namespace TraitFinderApp.Client.Model
 			{PREHISTORICPLANET_ID,PREHISTORICPLANET},
 		};
 
-		internal static void AddMixingDestinations(List<DataImport.spaceDestinations> mixingDestinations, List<Dlc> mixingDlcs)
+		internal static void AddMixingDestinations(List<SpaceDestinationMix> mixingDesignations, List<Dlc> mixingDlcs)
 		{
 			foreach (var dlc in mixingDlcs)
 			{
-				mixingDestinations.AddRange(dlc.extraSpaceDestinationsBasegame);
+				if (GameSettingsInstance.TryGetDlcMixing(dlc, out var dlcMixing))
+				{
+					var destinations = dlcMixing.spaceDesinations;
+					if (destinations != null)
+						mixingDesignations.AddRange(destinations);
+				}
 			}
 		}
 	}

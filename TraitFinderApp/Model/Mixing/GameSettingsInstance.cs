@@ -20,9 +20,10 @@ namespace TraitFinderApp.Model.Mixing
 
 		public static Dictionary<Dlc, MixingSettingConfig> DlcMixingSettingsDict = new Dictionary<Dlc, MixingSettingConfig>(4);
 
+		public static bool TryGetDlcMixing(Dlc dlc, out MixingSettingConfig dlcSetting) => DlcMixingSettingsDict.TryGetValue(dlc, out dlcSetting);
 
-		public static void SetMixingStateWhere(Func<MixingSettingConfig,bool> ConditionFulfilled, bool enabled) => DoForMixingsWhere(ConditionFulfilled, mixing => mixing.ForceEnabledState(enabled));
-		
+		public static void SetMixingStateWhere(Func<MixingSettingConfig, bool> ConditionFulfilled, bool enabled) => DoForMixingsWhere(ConditionFulfilled, mixing => mixing.ForceEnabledState(enabled));
+
 		public static void DoForMixingsWhere(Func<MixingSettingConfig, bool> ConditionFulfilled, Action<MixingSettingConfig> Action)
 		{
 			foreach (var mixing in AllMixingSettings)
@@ -32,11 +33,12 @@ namespace TraitFinderApp.Model.Mixing
 			}
 		}
 
+
 		public static void InitMixingSettings()
 		{
-			foreach(var mixing in AllMixingSettings)
+			foreach (var mixing in AllMixingSettings)
 			{
-				 mixing.InitBindings();
+				mixing.InitBindings();
 				switch (mixing.SettingType)
 				{
 					case (GameSettingType.DLCMixing):
@@ -73,6 +75,13 @@ namespace TraitFinderApp.Model.Mixing
 			return "0";
 		}
 
+		public static List<MixingSettingConfig> GetActiveMixingsFor(string mixingsCode)
+		{
+			ParseMixingSettingsCode(mixingsCode);
+			return AllMixingSettings.Where(mixing => mixing.IsActive()).ToList();
+		}
+
+
 		/// <summary>
 		/// Mirrored from the game, parses a mixing code string to apply mixing settings
 		/// </summary>
@@ -80,7 +89,7 @@ namespace TraitFinderApp.Model.Mixing
 		/// <returns>bool: Is mixing string valid</returns>
 		public static bool ParseMixingSettingsCode(string mixingsCode)
 		{
-			Console.WriteLine("Parsing Mixing Code: "+mixingsCode);
+			Console.WriteLine("Parsing Mixing Code: " + mixingsCode);
 			BigInteger bigInteger = Base36toBinary(mixingsCode.ToUpperInvariant());
 
 			for (int i = AllMixingSettings.Count - 1; i >= 0; i--)
@@ -88,7 +97,7 @@ namespace TraitFinderApp.Model.Mixing
 				var mixingSetting = AllMixingSettings[i];
 				long level = (long)(bigInteger % (BigInteger)mixingSetting.coordinate_range);
 
-				if(level > mixingSetting.Levels.Count)
+				if (level > mixingSetting.Levels.Count)
 				{
 					Console.WriteLine("Invalid Mixing String: Level " + level + " higher than possible for " + mixingSetting.Name);
 					return false;
@@ -97,7 +106,7 @@ namespace TraitFinderApp.Model.Mixing
 				bigInteger /= (BigInteger)mixingSetting.coordinate_range;
 				mixingSetting.SetLevel(level);
 			}
-			if(bigInteger != 0)
+			if (bigInteger != 0)
 			{
 				Console.WriteLine("Invalid Mixing String: bigInteger not 0 after all settings extracted");
 				return false;

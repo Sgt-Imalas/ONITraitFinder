@@ -24,6 +24,26 @@
 		"ForbiddenClusterTags": null,
 		"WorldMixing": null,
 		"SubworldMixing": null,
+		"spacePois": [
+			{
+				"pois": [ "HarvestableSpacePOI_DLC2CeresField" ],
+				"numToSpawn": 1,
+				"allowedRings": {
+					"min": 5,
+					"max": 11
+				},
+				"avoidClumping": false,
+				"canSpawnDuplicates": false,
+				"guarantee": true
+			}
+		],
+		"spaceDesinations": [
+			{
+				"minTier": 3,
+				"maxTier": 10,
+				"type": "DLC2CeresSpaceDestination"
+			}
+		],
 		"SettingType": 0
 	},
 	{
@@ -37,19 +57,19 @@
 			{
 				"Id": "Disabled",
 				"Name": "Disabled",
-				"Description": "This biome will not be mixed in",
+				"Description": "This biome will not be mixed into any world",
 				"coordinate_value": 0
 			},
 			{
 				"Id": "TryMixing",
 				"Name": "Likely",
-				"Description": "This biome is very likely to be mixed in",
+				"Description": "This biome is very likely to be mixed into a world",
 				"coordinate_value": 1
 			},
 			{
 				"Id": "GuranteeMixing",
 				"Name": "Guaranteed",
-				"Description": "This biome will be mixed in, even if it causes a worldgen failure",
+				"Description": "This biome will be mixed into a world, even if it causes a worldgen failure",
 				"coordinate_value": 2
 			}
 		],
@@ -57,6 +77,8 @@
 		"ForbiddenClusterTags": [ "CeresCluster" ],
 		"WorldMixing": null,
 		"SubworldMixing": "dlc2::subworlds/icecaves/IceCavesMix",
+		"spacePois": null,
+		"spaceDesinations": null,
 		"SettingType": 1
 	},
 	{
@@ -70,19 +92,19 @@
 			{
 				"Id": "Disabled",
 				"Name": "Disabled",
-				"Description": "This biome will not be mixed in",
+				"Description": "This biome will not be mixed into any world",
 				"coordinate_value": 0
 			},
 			{
 				"Id": "TryMixing",
 				"Name": "Likely",
-				"Description": "This biome is very likely to be mixed in",
+				"Description": "This biome is very likely to be mixed into a world",
 				"coordinate_value": 1
 			},
 			{
 				"Id": "GuranteeMixing",
 				"Name": "Guaranteed",
-				"Description": "This biome will be mixed in, even if it causes a worldgen failure",
+				"Description": "This biome will be mixed into a world, even if it causes a worldgen failure",
 				"coordinate_value": 2
 			}
 		],
@@ -90,6 +112,8 @@
 		"ForbiddenClusterTags": [ "CeresCluster" ],
 		"WorldMixing": null,
 		"SubworldMixing": "dlc2::subworlds/carrotquarry/CarrotQuarryMix",
+		"spacePois": null,
+		"spaceDesinations": null,
 		"SettingType": 1
 	},
 	{
@@ -103,19 +127,19 @@
 			{
 				"Id": "Disabled",
 				"Name": "Disabled",
-				"Description": "This biome will not be mixed in",
+				"Description": "This biome will not be mixed into any world",
 				"coordinate_value": 0
 			},
 			{
 				"Id": "TryMixing",
 				"Name": "Likely",
-				"Description": "This biome is very likely to be mixed in",
+				"Description": "This biome is very likely to be mixed into a world",
 				"coordinate_value": 1
 			},
 			{
 				"Id": "GuranteeMixing",
 				"Name": "Guaranteed",
-				"Description": "This biome will be mixed in, even if it causes a worldgen failure",
+				"Description": "This biome will be mixed into a world, even if it causes a worldgen failure",
 				"coordinate_value": 2
 			}
 		],
@@ -123,6 +147,8 @@
 		"ForbiddenClusterTags": [ "CeresCluster" ],
 		"WorldMixing": null,
 		"SubworldMixing": "dlc2::subworlds/sugarwoods/SugarWoodsMix",
+		"spacePois": null,
+		"spaceDesinations": null,
 		"SettingType": 1
 	},
 	{
@@ -156,6 +182,8 @@
 		"ForbiddenClusterTags": [ "CeresCluster" ],
 		"WorldMixing": "dlc2::worlds/MixingCeresAsteroid",
 		"SubworldMixing": null,
+		"spacePois": null,
+		"spaceDesinations": null,
 		"SettingType": 2
 	},
 	{
@@ -183,12 +211,14 @@
 		"ForbiddenClusterTags": null,
 		"WorldMixing": null,
 		"SubworldMixing": null,
+		"spacePois": [],
+		"spaceDesinations": [],
 		"SettingType": 0
 	},
 	{
 		"Id": "DLC4_ID",
 		"Name": "The Prehistoric Planet Pack",
-		"Description": "The Prehistoric Planet Pack features carnivorous flora and fauna, biofuel, and a focus on surface defense",
+		"Description": "The Prehistoric Planet Pack features carnivorous flora and fauna, biodiesel, and a focus on time-sensitive surface defense",
 		"coordinate_range": 5,
 		"DlcIdFrom": "DLC4_ID",
 		"Icon": null,
@@ -210,6 +240,26 @@
 		"ForbiddenClusterTags": null,
 		"WorldMixing": null,
 		"SubworldMixing": null,
+		"spacePois": [
+			{
+				"pois": [ "HarvestableSpacePOI_DLC4PrehistoricMixingField" ],
+				"numToSpawn": 1,
+				"allowedRings": {
+					"min": 5,
+					"max": 11
+				},
+				"avoidClumping": false,
+				"canSpawnDuplicates": false,
+				"guarantee": true
+			}
+		],
+		"spaceDesinations": [
+			{
+				"minTier": 3,
+				"maxTier": 10,
+				"type": "DLC4PrehistoricSpaceDestination"
+			}
+		],
 		"SettingType": 0
 	},
 	{
@@ -223,19 +273,19 @@
 			{
 				"Id": "Disabled",
 				"Name": "Disabled",
-				"Description": "This biome will not be mixed in",
+				"Description": "This biome will not be mixed into any world",
 				"coordinate_value": 0
 			},
 			{
 				"Id": "TryMixing",
 				"Name": "Likely",
-				"Description": "This biome is very likely to be mixed in",
+				"Description": "This biome is very likely to be mixed into a world",
 				"coordinate_value": 1
 			},
 			{
 				"Id": "GuranteeMixing",
 				"Name": "Guaranteed",
-				"Description": "This biome will be mixed in, even if it causes a worldgen failure",
+				"Description": "This biome will be mixed into a world, even if it causes a worldgen failure",
 				"coordinate_value": 2
 			}
 		],
@@ -243,6 +293,8 @@
 		"ForbiddenClusterTags": [ "PrehistoricCluster" ],
 		"WorldMixing": null,
 		"SubworldMixing": "dlc4::subworlds/garden/GardenMix",
+		"spacePois": null,
+		"spaceDesinations": null,
 		"SettingType": 1
 	},
 	{
@@ -256,19 +308,19 @@
 			{
 				"Id": "Disabled",
 				"Name": "Disabled",
-				"Description": "This biome will not be mixed in",
+				"Description": "This biome will not be mixed into any world",
 				"coordinate_value": 0
 			},
 			{
 				"Id": "TryMixing",
 				"Name": "Likely",
-				"Description": "This biome is very likely to be mixed in",
+				"Description": "This biome is very likely to be mixed into a world",
 				"coordinate_value": 1
 			},
 			{
 				"Id": "GuranteeMixing",
 				"Name": "Guaranteed",
-				"Description": "This biome will be mixed in, even if it causes a worldgen failure",
+				"Description": "This biome will be mixed into a world, even if it causes a worldgen failure",
 				"coordinate_value": 2
 			}
 		],
@@ -276,6 +328,8 @@
 		"ForbiddenClusterTags": [ "PrehistoricCluster" ],
 		"WorldMixing": null,
 		"SubworldMixing": "dlc4::subworlds/raptor/RaptorMix",
+		"spacePois": null,
+		"spaceDesinations": null,
 		"SettingType": 1
 	},
 	{
@@ -289,19 +343,19 @@
 			{
 				"Id": "Disabled",
 				"Name": "Disabled",
-				"Description": "This biome will not be mixed in",
+				"Description": "This biome will not be mixed into any world",
 				"coordinate_value": 0
 			},
 			{
 				"Id": "TryMixing",
 				"Name": "Likely",
-				"Description": "This biome is very likely to be mixed in",
+				"Description": "This biome is very likely to be mixed into a world",
 				"coordinate_value": 1
 			},
 			{
 				"Id": "GuranteeMixing",
 				"Name": "Guaranteed",
-				"Description": "This biome will be mixed in, even if it causes a worldgen failure",
+				"Description": "This biome will be mixed into a world, even if it causes a worldgen failure",
 				"coordinate_value": 2
 			}
 		],
@@ -309,6 +363,8 @@
 		"ForbiddenClusterTags": [ "PrehistoricCluster" ],
 		"WorldMixing": null,
 		"SubworldMixing": "dlc4::subworlds/wetlands/WetlandsMix",
+		"spacePois": null,
+		"spaceDesinations": null,
 		"SettingType": 1
 	},
 	{
@@ -342,6 +398,8 @@
 		"ForbiddenClusterTags": [ "PrehistoricCluster" ],
 		"WorldMixing": "dlc4::worlds/MixingPrehistoricAsteroid",
 		"SubworldMixing": null,
+		"spacePois": null,
+		"spaceDesinations": null,
 		"SettingType": 2
 	}
 ]

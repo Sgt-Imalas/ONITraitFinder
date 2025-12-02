@@ -1,6 +1,8 @@
 ﻿
 using Newtonsoft.Json;
 using TraitFinderApp.Client.Model;
+using TraitFinderApp.Model.KleiClasses;
+using TraitFinderApp.Model.KleiClasses.WorldGen;
 using static MudBlazor.CategoryTypes;
 
 namespace TraitFinderApp.Model.Mixing
@@ -20,6 +22,8 @@ namespace TraitFinderApp.Model.Mixing
 		public string WorldMixing;
 		public string SubworldMixing;
 		public GameSettingType SettingType = GameSettingType.None;
+		public List<SpaceMapPOIPlacement>? spacePois { get; set; }
+		public List<SpaceDestinationMix>? spaceDesinations { get; set; }
 
 		public SettingLevel CurrentLevel;
 		public SettingLevel OnLevel, OffLevel, ThirdLevel; //mixings have either 2 or 3 settings levels
@@ -89,6 +93,19 @@ namespace TraitFinderApp.Model.Mixing
 				Console.WriteLine("Could not find asteroid for world mixing: " + WorldMixing);
 			}
 			return null;
+		}
+
+
+		public List<SpaceMapPOIPlacement>? GetPOIs_SO()
+		{
+			if (!IsDlcMixing())
+				return null;
+			return spacePois;
+		}
+		public List<SpaceDestinationMix>? GetPOIs_BaseGame()
+		{
+			if(!IsDlcMixing()) return null;
+			return spaceDesinations;
 		}
 	}
 }

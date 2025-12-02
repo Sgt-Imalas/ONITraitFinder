@@ -1,20 +1,22 @@
-﻿using System.Diagnostics;
+﻿using Newtonsoft.Json;
+using OniStarmapGenerator.Model;
+using OniStarmapGenerator.Model.Search;
 using System;
+using System.ComponentModel.Design;
+using System.Diagnostics;
+using System.Text.Json;
+using System.Text.RegularExpressions;
 using TraitFinderApp.Client.Model.KleiClasses;
 using TraitFinderApp.Client.Model.Search;
-using TraitFinderApp.Model.Search;
-using static System.Net.WebRequestMethods;
-using System.Text.Json;
-using static MudBlazor.CategoryTypes;
-using Newtonsoft.Json;
-using OniStarmapGenerator.Model.Search;
+using TraitFinderApp.Model;
 using TraitFinderApp.Model.KleiClasses;
-using OniStarmapGenerator.Model;
-using static MudBlazor.Icons.Custom;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+using TraitFinderApp.Model.KleiClasses.WorldGen;
 using TraitFinderApp.Model.Mixing;
-using System.Text.RegularExpressions;
-using System.ComponentModel.Design;
+using TraitFinderApp.Model.Search;
+using static MudBlazor.CategoryTypes;
+using static MudBlazor.Icons.Custom;
+using static System.Net.WebRequestMethods;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace TraitFinderApp.Client.Model
 {
@@ -571,7 +573,7 @@ namespace TraitFinderApp.Client.Model
 				"VolcanoPlanet"
 			  }
 			};
-			List<int> list = new List<int>();
+			List<int> remainingSpots = new List<int>();
 			int num1 = 3;
 			int minValue = 15;
 			int maxValue = 25;
@@ -580,7 +582,7 @@ namespace TraitFinderApp.Client.Model
 				if (stringListList[index1].Count != 0)
 				{
 					for (int index2 = 0; index2 < num1; ++index2)
-						list.Add(index1);
+						remainingSpots.Add(index1);
 				}
 			}
 			int nextId = destinations.Count;
@@ -588,33 +590,33 @@ namespace TraitFinderApp.Client.Model
 			List<SpaceDestination> collection1 = new List<SpaceDestination>();
 			for (int index3 = 0; index3 < num2; ++index3)
 			{
-				int index4 = rng.Next(0, list.Count - 1);
-				int num3 = list[index4];
-				list.RemoveAt(index4);
+				int index4 = rng.Next(0, remainingSpots.Count - 1);
+				int num3 = remainingSpots[index4];
+				remainingSpots.RemoveAt(index4);
 				List<string> stringList = stringListList[num3];
 				string type = stringList[rng.Next(0, stringList.Count)];
 				SpaceDestination spaceDestination = new SpaceDestination(GetNextID(), type, num3);
 				collection1.Add(spaceDestination);
 
 			}
-			list.ShuffleSeeded(rng);
+			remainingSpots.ShuffleSeeded(rng);
 			List<SpaceDestination> collection2 = new List<SpaceDestination>();
-			var mixingDestinations = new List<spaceDestinations>();
+			var mixingDestinations = new List<SpaceDestinationMix>();
 			Dlc.AddMixingDestinations(mixingDestinations, mixingDlcs);
 
 			foreach (var spaceDesination in mixingDestinations)
 			{
 				bool flag = false;
-				if (list.Count > 0)
+				if (remainingSpots.Count > 0)
 				{
-					for (int index = 0; index < list.Count; ++index)
+					for (int index = 0; index < remainingSpots.Count; ++index)
 					{
-						int distance = list[index];
+						int distance = remainingSpots[index];
 						if (distance >= spaceDesination.minTier && distance <= spaceDesination.maxTier)
 						{
 							SpaceDestination spaceDestination = new SpaceDestination(GetNextID(), spaceDesination.type, distance);
 							collection2.Add(spaceDestination);
-							list.RemoveAt(index);
+							remainingSpots.RemoveAt(index);
 							flag = true;
 							break;
 						}
@@ -637,7 +639,7 @@ namespace TraitFinderApp.Client.Model
 				}
 				if (!flag)
 				{
-					Console.WriteLine("error while placing the mixing destination");
+					DebugLogger.Error("error while placing the mixing destination");
 				}
 			}
 			destinations.AddRange(collection1);

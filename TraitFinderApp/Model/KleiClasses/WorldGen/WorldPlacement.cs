@@ -1,4 +1,7 @@
-﻿namespace TraitFinderApp.Client.Model
+﻿using TraitFinderApp.Model;
+using TraitFinderApp.Model.KleiClasses;
+
+namespace TraitFinderApp.Client.Model
 {
 	public class WorldPlacement
 	{
@@ -9,9 +12,14 @@
 			Startworld,
 			InnerCluster
 		}
-		public string world;
+		public string world { get; set; }
+
 		public WorldMixing worldMixing { get; set; }
+
+		public MinMaxI allowedRings { get; set; }
+
 		public int buffer { get; set; }
+
 		public LocationType locationType { get; set; }
 
 		public int x { get; set; }
@@ -25,8 +33,22 @@
 		public bool startWorld { get; set; }
 
 		public int hiddenY { get; set; }
-
-		public WorldPlacement() { }
+		public static int GetSortOrder(LocationType type)
+		{
+			return type switch
+			{
+				LocationType.Startworld => 1,
+				LocationType.InnerCluster => 2,
+				_ => 3,
+			};
+		}
+		public WorldPlacement()
+		{
+			allowedRings = new MinMaxI(0, 9999);
+			buffer = 2;
+			locationType = LocationType.Cluster;
+			worldMixing = new WorldMixing();
+		}
 
 		public void InitBindings(Data data)
 		{
@@ -36,7 +58,7 @@
 			}
 			else
 			{
-				Console.WriteLine($"WorldPlacement: Could not find asteroid for world {world}");
+				DebugLogger.Error($"WorldPlacement: Could not find asteroid for world {world}");
 			}
 		}
 		public bool IsMixingPlacement()

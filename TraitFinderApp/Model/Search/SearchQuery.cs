@@ -276,7 +276,7 @@ namespace TraitFinderApp.Client.Model.Search
 
 			foreach (var dlc in SelectedCluster.RequiredDlcs)
 			{
-				if (GameSettingsInstance.DlcMixingSettingsDict.TryGetValue(dlc, out var mixing) && !IsMixingEnabled(mixing))
+				if (GameSettingsInstance.TryGetDlcMixing(dlc, out var mixing) && !IsMixingEnabled(mixing))
 				{
 					SetMixingEnabled(mixing, true);
 				}
