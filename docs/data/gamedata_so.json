@@ -792,8 +792,8 @@
                     "guarantee": false
                 },
                 {
-                    "pois": [ "HarvestableSpacePOI_ForestyOreField" ],
-                    "numToSpawn": 1,
+                    "pois": [ "HarvestableSpacePOI_ForestyOreField", "HarvestableSpacePOI_OrganicMassField" ],
+                    "numToSpawn": 2,
                     "allowedRings": {
                         "min": 2,
                         "max": 3
@@ -1625,8 +1625,8 @@
                     "guarantee": false
                 },
                 {
-                    "pois": [ "HarvestableSpacePOI_SandyOreField" ],
-                    "numToSpawn": 1,
+                    "pois": [ "HarvestableSpacePOI_SandyOreField", "HarvestableSpacePOI_OrganicMassField" ],
+                    "numToSpawn": 2,
                     "allowedRings": {
                         "min": 2,
                         "max": 3
@@ -2527,8 +2527,8 @@
                     "guarantee": false
                 },
                 {
-                    "pois": [ "HarvestableSpacePOI_SwampyOreField" ],
-                    "numToSpawn": 1,
+                    "pois": [ "HarvestableSpacePOI_SwampyOreField", "HarvestableSpacePOI_OrganicMassField" ],
+                    "numToSpawn": 2,
                     "allowedRings": {
                         "min": 2,
                         "max": 4
@@ -3429,8 +3429,8 @@
                     "guarantee": false
                 },
                 {
-                    "pois": [ "HarvestableSpacePOI_SwampyOreField" ],
-                    "numToSpawn": 1,
+                    "pois": [ "HarvestableSpacePOI_SwampyOreField", "HarvestableSpacePOI_OrganicMassField" ],
+                    "numToSpawn": 2,
                     "allowedRings": {
                         "min": 2,
                         "max": 4
@@ -4342,8 +4342,8 @@
                     "guarantee": false
                 },
                 {
-                    "pois": [ "HarvestableSpacePOI_OrganicMassField" ],
-                    "numToSpawn": 1,
+                    "pois": [ "HarvestableSpacePOI_OrganicMassField", "HarvestableSpacePOI_OrganicMassField" ],
+                    "numToSpawn": 2,
                     "allowedRings": {
                         "min": 6,
                         "max": 8
@@ -5233,8 +5233,8 @@
                     "guarantee": false
                 },
                 {
-                    "pois": [ "HarvestableSpacePOI_SwampyOreField" ],
-                    "numToSpawn": 1,
+                    "pois": [ "HarvestableSpacePOI_SwampyOreField", "HarvestableSpacePOI_OrganicMassField" ],
+                    "numToSpawn": 2,
                     "allowedRings": {
                         "min": 2,
                         "max": 4
@@ -6135,8 +6135,8 @@
                     "guarantee": false
                 },
                 {
-                    "pois": [ "HarvestableSpacePOI_SwampyOreField" ],
-                    "numToSpawn": 1,
+                    "pois": [ "HarvestableSpacePOI_SwampyOreField", "HarvestableSpacePOI_OrganicMassField" ],
+                    "numToSpawn": 2,
                     "allowedRings": {
                         "min": 2,
                         "max": 4
@@ -6991,8 +6991,8 @@
                     "guarantee": false
                 },
                 {
-                    "pois": [ "HarvestableSpacePOI_SandyOreField" ],
-                    "numToSpawn": 1,
+                    "pois": [ "HarvestableSpacePOI_SandyOreField", "HarvestableSpacePOI_OrganicMassField" ],
+                    "numToSpawn": 2,
                     "allowedRings": {
                         "min": 2,
                         "max": 3
@@ -7847,8 +7847,8 @@
                     "guarantee": false
                 },
                 {
-                    "pois": [ "HarvestableSpacePOI_SwampyOreField" ],
-                    "numToSpawn": 1,
+                    "pois": [ "HarvestableSpacePOI_SwampyOreField", "HarvestableSpacePOI_OrganicMassField" ],
+                    "numToSpawn": 2,
                     "allowedRings": {
                         "min": 2,
                         "max": 3
@@ -7950,7 +7950,7 @@
             "disableStoryTraits": false,
             "fixedCoordinate": -1,
             "clusterTags": []
-        },       
+        },
         {
             "Id": "expansion1::clusters/VanillaArboriaCluster",
             "Name": "Arboria Cluster",
@@ -8680,8 +8680,8 @@
                     "guarantee": false
                 },
                 {
-                    "pois": [ "HarvestableSpacePOI_ForestyOreField" ],
-                    "numToSpawn": 1,
+                    "pois": [ "HarvestableSpacePOI_ForestyOreField", "HarvestableSpacePOI_OrganicMassField" ],
+                    "numToSpawn": 2,
                     "allowedRings": {
                         "min": 2,
                         "max": 3
@@ -9513,8 +9513,8 @@
                     "guarantee": false
                 },
                 {
-                    "pois": [ "HarvestableSpacePOI_ForestyOreField" ],
-                    "numToSpawn": 1,
+                    "pois": [ "HarvestableSpacePOI_ForestyOreField", "HarvestableSpacePOI_OrganicMassField" ],
+                    "numToSpawn": 2,
                     "allowedRings": {
                         "min": 2,
                         "max": 3
@@ -10346,8 +10346,8 @@
                     "guarantee": false
                 },
                 {
-                    "pois": [ "HarvestableSpacePOI_SandyOreField" ],
-                    "numToSpawn": 1,
+                    "pois": [ "HarvestableSpacePOI_SandyOreField", "HarvestableSpacePOI_OrganicMassField" ],
+                    "numToSpawn": 2,
                     "allowedRings": {
                         "min": 2,
                         "max": 3
@@ -11179,8 +11179,8 @@
                     "guarantee": false
                 },
                 {
-                    "pois": [ "HarvestableSpacePOI_ForestyOreField" ],
-                    "numToSpawn": 1,
+                    "pois": [ "HarvestableSpacePOI_ForestyOreField", "HarvestableSpacePOI_OrganicMassField" ],
+                    "numToSpawn": 2,
                     "allowedRings": {
                         "min": 2,
                         "max": 3
@@ -12012,8 +12012,8 @@
                     "guarantee": false
                 },
                 {
-                    "pois": [ "HarvestableSpacePOI_ForestyOreField" ],
-                    "numToSpawn": 1,
+                    "pois": [ "HarvestableSpacePOI_ForestyOreField", "HarvestableSpacePOI_OrganicMassField" ],
+                    "numToSpawn": 2,
                     "allowedRings": {
                         "min": 2,
                         "max": 3
@@ -12845,8 +12845,8 @@
                     "guarantee": false
                 },
                 {
-                    "pois": [ "HarvestableSpacePOI_SandyOreField" ],
-                    "numToSpawn": 1,
+                    "pois": [ "HarvestableSpacePOI_SandyOreField", "HarvestableSpacePOI_OrganicMassField" ],
+                    "numToSpawn": 2,
                     "allowedRings": {
                         "min": 2,
                         "max": 3
@@ -13678,8 +13678,8 @@
                     "guarantee": false
                 },
                 {
-                    "pois": [ "HarvestableSpacePOI_SandyOreField" ],
-                    "numToSpawn": 1,
+                    "pois": [ "HarvestableSpacePOI_SandyOreField", "HarvestableSpacePOI_OrganicMassField" ],
+                    "numToSpawn": 2,
                     "allowedRings": {
                         "min": 2,
                         "max": 3
@@ -14511,8 +14511,8 @@
                     "guarantee": false
                 },
                 {
-                    "pois": [ "HarvestableSpacePOI_SandyOreField" ],
-                    "numToSpawn": 1,
+                    "pois": [ "HarvestableSpacePOI_SandyOreField", "HarvestableSpacePOI_OrganicMassField" ],
+                    "numToSpawn": 2,
                     "allowedRings": {
                         "min": 2,
                         "max": 3
@@ -15344,8 +15344,8 @@
                     "guarantee": false
                 },
                 {
-                    "pois": [ "HarvestableSpacePOI_SwampyOreField" ],
-                    "numToSpawn": 1,
+                    "pois": [ "HarvestableSpacePOI_SwampyOreField", "HarvestableSpacePOI_OrganicMassField" ],
+                    "numToSpawn": 2,
                     "allowedRings": {
                         "min": 2,
                         "max": 3
@@ -16177,8 +16177,8 @@
                     "guarantee": false
                 },
                 {
-                    "pois": [ "HarvestableSpacePOI_SandyOreField" ],
-                    "numToSpawn": 1,
+                    "pois": [ "HarvestableSpacePOI_SandyOreField", "HarvestableSpacePOI_OrganicMassField" ],
+                    "numToSpawn": 2,
                     "allowedRings": {
                         "min": 2,
                         "max": 3
@@ -17010,8 +17010,8 @@
                     "guarantee": false
                 },
                 {
-                    "pois": [ "HarvestableSpacePOI_DLC2CeresOreField" ],
-                    "numToSpawn": 1,
+                    "pois": [ "HarvestableSpacePOI_DLC2CeresOreField", "HarvestableSpacePOI_OrganicMassField" ],
+                    "numToSpawn": 2,
                     "allowedRings": {
                         "min": 2,
                         "max": 3
@@ -17843,8 +17843,8 @@
                     "guarantee": false
                 },
                 {
-                    "pois": [ "HarvestableSpacePOI_DLC2CeresOreField" ],
-                    "numToSpawn": 1,
+                    "pois": [ "HarvestableSpacePOI_DLC2CeresOreField", "HarvestableSpacePOI_OrganicMassField" ],
+                    "numToSpawn": 2,
                     "allowedRings": {
                         "min": 2,
                         "max": 3
@@ -18699,8 +18699,8 @@
                     "guarantee": false
                 },
                 {
-                    "pois": [ "HarvestableSpacePOI_DLC2CeresOreField" ],
-                    "numToSpawn": 1,
+                    "pois": [ "HarvestableSpacePOI_DLC2CeresOreField", "HarvestableSpacePOI_OrganicMassField" ],
+                    "numToSpawn": 2,
                     "allowedRings": {
                         "min": 2,
                         "max": 3
@@ -19578,8 +19578,8 @@
                     "guarantee": false
                 },
                 {
-                    "pois": [ "HarvestableSpacePOI_DLC2CeresOreField" ],
-                    "numToSpawn": 1,
+                    "pois": [ "HarvestableSpacePOI_DLC2CeresOreField", "HarvestableSpacePOI_OrganicMassField" ],
+                    "numToSpawn": 2,
                     "allowedRings": {
                         "min": 2,
                         "max": 4
@@ -20411,8 +20411,8 @@
                     "guarantee": false
                 },
                 {
-                    "pois": [ "HarvestableSpacePOI_DLC4PrehistoricOreField" ],
-                    "numToSpawn": 1,
+                    "pois": [ "HarvestableSpacePOI_DLC4PrehistoricOreField", "HarvestableSpacePOI_OrganicMassField" ],
+                    "numToSpawn": 2,
                     "allowedRings": {
                         "min": 2,
                         "max": 3
@@ -21255,8 +21255,8 @@
                     "guarantee": false
                 },
                 {
-                    "pois": [ "HarvestableSpacePOI_OrganicMassField" ],
-                    "numToSpawn": 1,
+                    "pois": [ "HarvestableSpacePOI_OrganicMassField", "HarvestableSpacePOI_OrganicMassField" ],
+                    "numToSpawn": 2,
                     "allowedRings": {
                         "min": 5,
                         "max": 7
@@ -22111,8 +22111,8 @@
                     "guarantee": false
                 },
                 {
-                    "pois": [ "HarvestableSpacePOI_OrganicMassField" ],
-                    "numToSpawn": 1,
+                    "pois": [ "HarvestableSpacePOI_OrganicMassField", "HarvestableSpacePOI_OrganicMassField" ],
+                    "numToSpawn": 2,
                     "allowedRings": {
                         "min": 5,
                         "max": 7
@@ -22813,7 +22813,7 @@
             "worldTraitScale": 0.2,
             "worldTags": [],
             "SpecialPOIs": []
-        },        
+        },
         {
             "Id": "expansion1::worlds/VanillaArboria",
             "Name": "Arboria Asteroid",

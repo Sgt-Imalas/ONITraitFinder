@@ -1,0 +1,576 @@
+﻿{
+	"HarvestableSpacePOI_CarbonAsteroidField": {
+		"Id": "HarvestableSpacePOI_CarbonAsteroidField",
+		"Name": "Carbon Asteroid Field",
+		"Description": "An asteroid containing Refined Carbon and Coal.\n\nSpace mining requires a rocket equipped with a Drillcone and a cargo module.",
+		"Mineables": {
+			"RefinedCarbon": 1.5,
+			"Carbon": 5.5
+		},
+		"HasArtifacts": true,
+		"RechargeMin": 30000.0,
+		"RechargeMax": 60000.0,
+		"CapacityMin": 30000.0,
+		"CapacityMax": 45000.0
+	},
+	"HarvestableSpacePOI_MetallicAsteroidField": {
+		"Id": "HarvestableSpacePOI_MetallicAsteroidField",
+		"Name": "Metallic Asteroid Field",
+		"Description": "An asteroid field containing Iron, Copper, Lead, and Obsidian.\n\nSpace mining requires a rocket equipped with a Drillcone and a cargo module.",
+		"Mineables": {
+			"MoltenIron": 1.25,
+			"Cuprite": 1.75,
+			"Obsidian": 6.25,
+			"MoltenLead": 1.75
+		},
+		"HasArtifacts": true,
+		"RechargeMin": 30000.0,
+		"RechargeMax": 60000.0,
+		"CapacityMin": 54000.0,
+		"CapacityMax": 81000.0
+	},
+	"HarvestableSpacePOI_SatelliteField": {
+		"Id": "HarvestableSpacePOI_SatelliteField",
+		"Name": "Space Debris",
+		"Description": "Space junk from a forgotten age.\n\nCollecting artifacts requires a rocket equipped with an Artifact Transport Module.",
+		"Mineables": {
+			"Sand": 3.0,
+			"IronOre": 3.0,
+			"MoltenCopper": 2.67,
+			"Glass": 1.33
+		},
+		"HasArtifacts": true,
+		"RechargeMin": 30000.0,
+		"RechargeMax": 60000.0,
+		"CapacityMin": 30000.0,
+		"CapacityMax": 45000.0
+	},
+	"HarvestableSpacePOI_RockyAsteroidField": {
+		"Id": "HarvestableSpacePOI_RockyAsteroidField",
+		"Name": "Rocky Asteroid Field",
+		"Description": "An asteroid field containing Granite, Abyssalite, Sedimentary Rock, and Igneous Rock.\n\nSpace mining requires a rocket equipped with a Drillcone and a cargo module.",
+		"Mineables": {
+			"Katairite": 2.0,
+			"Granite": 2.0,
+			"SedimentaryRock": 3.0,
+			"IgneousRock": 3.0
+		},
+		"HasArtifacts": true,
+		"RechargeMin": 30000.0,
+		"RechargeMax": 60000.0,
+		"CapacityMin": 81000.0,
+		"CapacityMax": 94000.0
+	},
+	"HarvestableSpacePOI_InterstellarIceField": {
+		"Id": "HarvestableSpacePOI_InterstellarIceField",
+		"Name": "Ice Asteroid Field",
+		"Description": "An asteroid field containing Ice, Carbon Dioxide and Oxygen.\n\nSpace mining requires a rocket equipped with a Drillcone and a cargo module.",
+		"Mineables": {
+			"Ice": 2.5,
+			"SolidCarbonDioxide": 7.0,
+			"SolidOxygen": 0.5
+		},
+		"HasArtifacts": true,
+		"RechargeMin": 30000.0,
+		"RechargeMax": 60000.0,
+		"CapacityMin": 54000.0,
+		"CapacityMax": 81000.0
+	},
+	"HarvestableSpacePOI_OrganicMassField": {
+		"Id": "HarvestableSpacePOI_OrganicMassField",
+		"Name": "Organic Mass Field",
+		"Description": "A mass of harvestable resources containing Algae, Slime, Polluted Oxygen and Dirt.\n\nSpace mining requires a rocket equipped with a Drillcone and a cargo module.",
+		"Mineables": {
+			"SlimeMold": 3.0,
+			"Algae": 3.0,
+			"ContaminatedOxygen": 1.0,
+			"Dirt": 3.0
+		},
+		"HasArtifacts": true,
+		"RechargeMin": 30000.0,
+		"RechargeMax": 60000.0,
+		"CapacityMin": 54000.0,
+		"CapacityMax": 81000.0
+	},
+	"HarvestableSpacePOI_IceAsteroidField": {
+		"Id": "HarvestableSpacePOI_IceAsteroidField",
+		"Name": "Exploded Ice Giant",
+		"Description": "A cloud of planetary remains containing Ice, Carbon Dioxide, Oxygen and Natural Gas.\n\nSpace mining requires a rocket equipped with a Drillcone and a cargo module.",
+		"Mineables": {
+			"Ice": 6.0,
+			"SolidCarbonDioxide": 2.0,
+			"Oxygen": 1.5,
+			"SolidMethane": 0.5
+		},
+		"HasArtifacts": true,
+		"RechargeMin": 30000.0,
+		"RechargeMax": 60000.0,
+		"CapacityMin": 54000.0,
+		"CapacityMax": 81000.0
+	},
+	"HarvestableSpacePOI_GasGiantCloud": {
+		"Id": "HarvestableSpacePOI_GasGiantCloud",
+		"Name": "Exploded Gas Giant",
+		"Description": "The harvestable remains of a planet containing Hydrogen in gas form, and Methane in solid and liquid form.\n\nSpace mining requires a rocket equipped with a Drillcone and a cargo module.",
+		"Mineables": {
+			"Methane": 1.0,
+			"LiquidMethane": 1.0,
+			"SolidMethane": 1.0,
+			"Hydrogen": 7.0
+		},
+		"HasArtifacts": true,
+		"RechargeMin": 30000.0,
+		"RechargeMax": 60000.0,
+		"CapacityMin": 15000.0,
+		"CapacityMax": 20000.0
+	},
+	"HarvestableSpacePOI_ChlorineCloud": {
+		"Id": "HarvestableSpacePOI_ChlorineCloud",
+		"Name": "Chlorine Cloud",
+		"Description": "A cloud of harvestable debris containing Chlorine Gas and Bleach Stone.\n\nSpace mining requires a rocket equipped with a Drillcone and a cargo module.",
+		"Mineables": {
+			"Chlorine": 2.5,
+			"BleachStone": 7.5
+		},
+		"HasArtifacts": true,
+		"RechargeMin": 30000.0,
+		"RechargeMax": 60000.0,
+		"CapacityMin": 54000.0,
+		"CapacityMax": 81000.0
+	},
+	"HarvestableSpacePOI_GildedAsteroidField": {
+		"Id": "HarvestableSpacePOI_GildedAsteroidField",
+		"Name": "Gilded Asteroid Field",
+		"Description": "An asteroid field containing Gold, Fullerene, Regolith and more.\n\nSpace mining requires a rocket equipped with a Drillcone and a cargo module.",
+		"Mineables": {
+			"Gold": 2.5,
+			"Fullerene": 1.0,
+			"RefinedCarbon": 1.0,
+			"SedimentaryRock": 4.5,
+			"Regolith": 1.0
+		},
+		"HasArtifacts": true,
+		"RechargeMin": 30000.0,
+		"RechargeMax": 60000.0,
+		"CapacityMin": 30000.0,
+		"CapacityMax": 45000.0
+	},
+	"HarvestableSpacePOI_GlimmeringAsteroidField": {
+		"Id": "HarvestableSpacePOI_GlimmeringAsteroidField",
+		"Name": "Glimmering Asteroid Field",
+		"Description": "An asteroid field containing Tungsten, Wolframite and more.\n\nSpace mining requires a rocket equipped with a Drillcone and a cargo module.",
+		"Mineables": {
+			"MoltenTungsten": 2.0,
+			"Wolframite": 6.0,
+			"Carbon": 1.0,
+			"CarbonDioxide": 1.0
+		},
+		"HasArtifacts": true,
+		"RechargeMin": 30000.0,
+		"RechargeMax": 60000.0,
+		"CapacityMin": 30000.0,
+		"CapacityMax": 45000.0
+	},
+	"HarvestableSpacePOI_HeliumCloud": {
+		"Id": "HarvestableSpacePOI_HeliumCloud",
+		"Name": "Helium Cloud",
+		"Description": "A cloud of resources containing Water and Hydrogen Gas.\n\nSpace mining requires a rocket equipped with a Drillcone and a cargo module.",
+		"Mineables": {
+			"Hydrogen": 2.0,
+			"Water": 8.0
+		},
+		"HasArtifacts": true,
+		"RechargeMin": 30000.0,
+		"RechargeMax": 60000.0,
+		"CapacityMin": 30000.0,
+		"CapacityMax": 45000.0
+	},
+	"HarvestableSpacePOI_OilyAsteroidField": {
+		"Id": "HarvestableSpacePOI_OilyAsteroidField",
+		"Name": "Oily Asteroid Field",
+		"Description": "An asteroid field containing Solid Methane, Carbon Dioxide and Crude Oil.\n\nSpace mining requires a rocket equipped with a Drillcone and a cargo module.",
+		"Mineables": {
+			"SolidCarbonDioxide": 7.75,
+			"SolidMethane": 1.125,
+			"CrudeOil": 1.125
+		},
+		"HasArtifacts": true,
+		"RechargeMin": 30000.0,
+		"RechargeMax": 60000.0,
+		"CapacityMin": 15000.0,
+		"CapacityMax": 25000.0
+	},
+	"HarvestableSpacePOI_OxidizedAsteroidField": {
+		"Id": "HarvestableSpacePOI_OxidizedAsteroidField",
+		"Name": "Oxidized Asteroid Field",
+		"Description": "An asteroid field containing Carbon Dioxide and Rust.\n\nSpace mining requires a rocket equipped with a Drillcone and a cargo module.",
+		"Mineables": {
+			"Rust": 8.0,
+			"SolidCarbonDioxide": 2.0
+		},
+		"HasArtifacts": true,
+		"RechargeMin": 30000.0,
+		"RechargeMax": 60000.0,
+		"CapacityMin": 54000.0,
+		"CapacityMax": 81000.0
+	},
+	"HarvestableSpacePOI_SaltyAsteroidField": {
+		"Id": "HarvestableSpacePOI_SaltyAsteroidField",
+		"Name": "Salty Asteroid Field",
+		"Description": "A field of harvestable resources containing Salt Water,Brine and Carbon Dioxide.\n\nSpace mining requires a rocket equipped with a Drillcone and a cargo module.",
+		"Mineables": {
+			"SaltWater": 5.0,
+			"Brine": 4.0,
+			"SolidCarbonDioxide": 1.0
+		},
+		"HasArtifacts": true,
+		"RechargeMin": 30000.0,
+		"RechargeMax": 60000.0,
+		"CapacityMin": 54000.0,
+		"CapacityMax": 81000.0
+	},
+	"HarvestableSpacePOI_FrozenOreField": {
+		"Id": "HarvestableSpacePOI_FrozenOreField",
+		"Name": "Frozen Ore Asteroid Field",
+		"Description": "An asteroid field containing Polluted Ice, Ice, Snow and Aluminum Ore.\n\nSpace mining requires a rocket equipped with a Drillcone and a cargo module.",
+		"Mineables": {
+			"Ice": 2.33,
+			"DirtyIce": 2.33,
+			"Snow": 1.83,
+			"AluminumOre": 2.0
+		},
+		"HasArtifacts": true,
+		"RechargeMin": 30000.0,
+		"RechargeMax": 60000.0,
+		"CapacityMin": 54000.0,
+		"CapacityMax": 81000.0
+	},
+	"HarvestableSpacePOI_ForestyOreField": {
+		"Id": "HarvestableSpacePOI_ForestyOreField",
+		"Name": "Forested Ore Field",
+		"Description": "A field of harvestable resources containing Carbon Dioxide, Igneous Rock and Aluminum Ore.\n\nSpace mining requires a rocket equipped with a Drillcone and a cargo module.",
+		"Mineables": {
+			"IgneousRock": 7.0,
+			"AluminumOre": 1.0,
+			"CarbonDioxide": 2.0
+		},
+		"HasArtifacts": true,
+		"RechargeMin": 30000.0,
+		"RechargeMax": 60000.0,
+		"CapacityMin": 54000.0,
+		"CapacityMax": 81000.0
+	},
+	"HarvestableSpacePOI_SwampyOreField": {
+		"Id": "HarvestableSpacePOI_SwampyOreField",
+		"Name": "Swampy Ore Field",
+		"Description": "An asteroid field containing Mud, Polluted Dirt and Cobalt Ore.\n\nSpace mining requires a rocket equipped with a Drillcone and a cargo module.",
+		"Mineables": {
+			"Mud": 2.0,
+			"ToxicSand": 7.0,
+			"Cobaltite": 1.0
+		},
+		"HasArtifacts": true,
+		"RechargeMin": 30000.0,
+		"RechargeMax": 60000.0,
+		"CapacityMin": 54000.0,
+		"CapacityMax": 81000.0
+	},
+	"HarvestableSpacePOI_SandyOreField": {
+		"Id": "HarvestableSpacePOI_SandyOreField",
+		"Name": "Sandy Ore Field",
+		"Description": "An asteroid field containing Sandstone, Algae, Copper Ore and Sand.\n\nSpace mining requires a rocket equipped with a Drillcone and a cargo module.",
+		"Mineables": {
+			"SandStone": 4.0,
+			"Algae": 2.0,
+			"Cuprite": 1.0,
+			"Sand": 3.0
+		},
+		"HasArtifacts": true,
+		"RechargeMin": 30000.0,
+		"RechargeMax": 60000.0,
+		"CapacityMin": 54000.0,
+		"CapacityMax": 81000.0
+	},
+	"HarvestableSpacePOI_RadioactiveGasCloud": {
+		"Id": "HarvestableSpacePOI_RadioactiveGasCloud",
+		"Name": "Radioactive Gas Cloud",
+		"Description": "A cloud of resources containing Chlorine Gas, Uranium Ore and Carbon Dioxide.\n\nSpace mining requires a rocket equipped with a Drillcone and a cargo module.",
+		"Mineables": {
+			"UraniumOre": 2.0,
+			"Chlorine": 2.0,
+			"CarbonDioxide": 7.0
+		},
+		"HasArtifacts": true,
+		"RechargeMin": 30000.0,
+		"RechargeMax": 60000.0,
+		"CapacityMin": 5000.0,
+		"CapacityMax": 10000.0
+	},
+	"HarvestableSpacePOI_RadioactiveAsteroidField": {
+		"Id": "HarvestableSpacePOI_RadioactiveAsteroidField",
+		"Name": "Radioactive Asteroid Field",
+		"Description": "An asteroid field containing Bleach Stone, Rust, Uranium Ore and Sulfur.\n\nSpace mining requires a rocket equipped with a Drillcone and a cargo module.",
+		"Mineables": {
+			"UraniumOre": 2.0,
+			"Sulfur": 3.0,
+			"BleachStone": 2.0,
+			"Rust": 4.0
+		},
+		"HasArtifacts": true,
+		"RechargeMin": 30000.0,
+		"RechargeMax": 60000.0,
+		"CapacityMin": 5000.0,
+		"CapacityMax": 10000.0
+	},
+	"HarvestableSpacePOI_OxygenRichAsteroidField": {
+		"Id": "HarvestableSpacePOI_OxygenRichAsteroidField",
+		"Name": "Oxygen Rich Asteroid Field",
+		"Description": "An asteroid field containing Ice, Polluted Oxygen and Water.\n\nSpace mining requires a rocket equipped with a Drillcone and a cargo module.",
+		"Mineables": {
+			"Water": 4.0,
+			"ContaminatedOxygen": 2.0,
+			"Ice": 4.0
+		},
+		"HasArtifacts": true,
+		"RechargeMin": 30000.0,
+		"RechargeMax": 60000.0,
+		"CapacityMin": 15000.0,
+		"CapacityMax": 25000.0
+	},
+	"HarvestableSpacePOI_InterstellarOcean": {
+		"Id": "HarvestableSpacePOI_InterstellarOcean",
+		"Name": "Interstellar Ocean",
+		"Description": "An interplanetary body that consists of Salt Water, Brine, Salt and Ice.\n\nSpace mining requires a rocket equipped with a Drillcone and a cargo module.",
+		"Mineables": {
+			"SaltWater": 2.5,
+			"Brine": 2.5,
+			"Salt": 2.5,
+			"Ice": 2.5
+		},
+		"HasArtifacts": true,
+		"RechargeMin": 30000.0,
+		"RechargeMax": 60000.0,
+		"CapacityMin": 15000.0,
+		"CapacityMax": 25000.0
+	},
+	"HarvestableSpacePOI_DLC2CeresField": {
+		"Id": "HarvestableSpacePOI_DLC2CeresField",
+		"Name": "Frozen Cinnabar Asteroid Field",
+		"Description": "The harvestable remains of a planet containing Cinnabar, Ice and Mercury.\n\nSpace mining requires a rocket equipped with a Drillcone and a cargo module.",
+		"Mineables": {
+			"Cinnabar": 4.5,
+			"Mercury": 2.5,
+			"Ice": 2.5
+		},
+		"HasArtifacts": true,
+		"RechargeMin": 30000.0,
+		"RechargeMax": 60000.0,
+		"CapacityMin": 15000.0,
+		"CapacityMax": 25000.0
+	},
+	"HarvestableSpacePOI_DLC2CeresOreField": {
+		"Id": "HarvestableSpacePOI_DLC2CeresOreField",
+		"Name": "Frozen Mercury Asteroid Field",
+		"Description": "An asteroid field containing Cinnabar, Ice and Mercury.\n\nSpace mining requires a rocket equipped with a Drillcone and a cargo module.",
+		"Mineables": {
+			"Cinnabar": 2.5,
+			"Mercury": 2.5,
+			"Ice": 3.5
+		},
+		"HasArtifacts": true,
+		"RechargeMin": 30000.0,
+		"RechargeMax": 60000.0,
+		"CapacityMin": 15000.0,
+		"CapacityMax": 25000.0
+	},
+	"HarvestableSpacePOI_DLC4PrehistoricMixingField": {
+		"Id": "HarvestableSpacePOI_DLC4PrehistoricMixingField",
+		"Name": "Conductive Ore Field",
+		"Description": "An asteroid field containing Nickel Ore, Peat, Amber and Shale.\n\nSpace mining requires a rocket equipped with a Drillcone and a cargo module.",
+		"Mineables": {
+			"NickelOre": 4.5,
+			"Peat": 2.5,
+			"Shale": 1.0,
+			"Amber": 1.0,
+			"Iridium": 0.5
+		},
+		"HasArtifacts": true,
+		"RechargeMin": 30000.0,
+		"RechargeMax": 60000.0,
+		"CapacityMin": 15000.0,
+		"CapacityMax": 25000.0
+	},
+	"HarvestableSpacePOI_DLC4PrehistoricOreField": {
+		"Id": "HarvestableSpacePOI_DLC4PrehistoricOreField",
+		"Name": "Amber Field",
+		"Description": "The harvestable remains of a planet containing Nickel Ore, Peat, Amber and Shale.\n\nSpace mining requires a rocket equipped with a Drillcone and a cargo module.",
+		"Mineables": {
+			"NickelOre": 1.5,
+			"Peat": 2.5,
+			"Shale": 1.0,
+			"Amber": 1.0
+		},
+		"HasArtifacts": true,
+		"RechargeMin": 30000.0,
+		"RechargeMax": 60000.0,
+		"CapacityMin": 15000.0,
+		"CapacityMax": 25000.0
+	},
+	"HarvestableSpacePOI_DLC4ImpactorDebrisField1": {
+		"Id": "HarvestableSpacePOI_DLC4ImpactorDebrisField1",
+		"Name": "Demolior Debris",
+		"Description": "The solid harvestable remains of Demolior, containing Iridium, Mafic Rock, Gold, and Granite.\n\nSpace mining requires a rocket equipped with a Drillcone and a cargo module.",
+		"Mineables": {
+			"Iridium": 1.7,
+			"MaficRock": 2.3,
+			"Gold": 2.1,
+			"Granite": 3.9
+		},
+		"HasArtifacts": false,
+		"RechargeMin": 30000.0,
+		"RechargeMax": 30000.0,
+		"CapacityMin": 35000.0,
+		"CapacityMax": 45000.0
+	},
+	"HarvestableSpacePOI_DLC4ImpactorDebrisField2": {
+		"Id": "HarvestableSpacePOI_DLC4ImpactorDebrisField2",
+		"Name": "Liquid Demolior Debris",
+		"Description": "The harvestable liquid remains of Demolior, containing Isosap, Petroleum, and Liquid Sulfur.\n\nSpace mining requires a rocket equipped with a Drillcone and a cargo module.",
+		"Mineables": {
+			"Isoresin": 1.8,
+			"Petroleum": 3.5,
+			"LiquidSulfur": 4.7
+		},
+		"HasArtifacts": false,
+		"RechargeMin": 30000.0,
+		"RechargeMax": 30000.0,
+		"CapacityMin": 33400.0,
+		"CapacityMax": 66800.0
+	},
+	"HarvestableSpacePOI_DLC4ImpactorDebrisField3": {
+		"Id": "HarvestableSpacePOI_DLC4ImpactorDebrisField3",
+		"Name": "Molten Demolior Debris",
+		"Description": "The harvestable molten remains of Demolior, containing Molten Iridium, Magma, Liquid Oxygen, and Liquid Hydrogen.\n\nSpace mining requires a rocket equipped with a Drillcone and a cargo module.",
+		"Mineables": {
+			"MoltenIridium": 3.7,
+			"LiquidOxygen": 0.6,
+			"LiquidHydrogen": 0.6,
+			"Magma": 5.1
+		},
+		"HasArtifacts": false,
+		"RechargeMin": 30000.0,
+		"RechargeMax": 30000.0,
+		"CapacityMin": 110000.0,
+		"CapacityMax": 137500.0
+	},
+	"ArtifactSpacePOI_GravitasSpaceStation1": {
+		"Id": "ArtifactSpacePOI_GravitasSpaceStation1",
+		"Name": "Destroyed Satellite",
+		"Description": "The remnants of a bygone era, lost in time.",
+		"Mineables": null,
+		"HasArtifacts": true,
+		"RechargeMin": 0.0,
+		"RechargeMax": 0.0,
+		"CapacityMin": 0.0,
+		"CapacityMax": 0.0
+	},
+	"ArtifactSpacePOI_GravitasSpaceStation2": {
+		"Id": "ArtifactSpacePOI_GravitasSpaceStation2",
+		"Name": "Demolished Rocket",
+		"Description": "A defunct rocket from a corporation that vanished long ago.",
+		"Mineables": null,
+		"HasArtifacts": true,
+		"RechargeMin": 0.0,
+		"RechargeMax": 0.0,
+		"CapacityMin": 0.0,
+		"CapacityMax": 0.0
+	},
+	"ArtifactSpacePOI_GravitasSpaceStation3": {
+		"Id": "ArtifactSpacePOI_GravitasSpaceStation3",
+		"Name": "Ruined Rocket",
+		"Description": "The ruins of a rocket that stopped functioning ages ago.",
+		"Mineables": null,
+		"HasArtifacts": true,
+		"RechargeMin": 0.0,
+		"RechargeMax": 0.0,
+		"CapacityMin": 0.0,
+		"CapacityMax": 0.0
+	},
+	"ArtifactSpacePOI_GravitasSpaceStation4": {
+		"Id": "ArtifactSpacePOI_GravitasSpaceStation4",
+		"Name": "Retired Planetary Excursion Module",
+		"Description": "A rocket part from a society that has been wiped out.",
+		"Mineables": null,
+		"HasArtifacts": true,
+		"RechargeMin": 0.0,
+		"RechargeMax": 0.0,
+		"CapacityMin": 0.0,
+		"CapacityMax": 0.0
+	},
+	"ArtifactSpacePOI_GravitasSpaceStation5": {
+		"Id": "ArtifactSpacePOI_GravitasSpaceStation5",
+		"Name": "Destroyed Satellite",
+		"Description": "A destroyed Gravitas satellite.",
+		"Mineables": null,
+		"HasArtifacts": true,
+		"RechargeMin": 0.0,
+		"RechargeMax": 0.0,
+		"CapacityMin": 0.0,
+		"CapacityMax": 0.0
+	},
+	"ArtifactSpacePOI_GravitasSpaceStation6": {
+		"Id": "ArtifactSpacePOI_GravitasSpaceStation6",
+		"Name": "Annihilated Satellite",
+		"Description": "The remains of a satellite made some time in the past.",
+		"Mineables": null,
+		"HasArtifacts": true,
+		"RechargeMin": 0.0,
+		"RechargeMax": 0.0,
+		"CapacityMin": 0.0,
+		"CapacityMax": 0.0
+	},
+	"ArtifactSpacePOI_GravitasSpaceStation7": {
+		"Id": "ArtifactSpacePOI_GravitasSpaceStation7",
+		"Name": "Wrecked Space Shuttle",
+		"Description": "A defunct space shuttle that floats through space unattended.",
+		"Mineables": null,
+		"HasArtifacts": true,
+		"RechargeMin": 0.0,
+		"RechargeMax": 0.0,
+		"CapacityMin": 0.0,
+		"CapacityMax": 0.0
+	},
+	"ArtifactSpacePOI_GravitasSpaceStation8": {
+		"Id": "ArtifactSpacePOI_GravitasSpaceStation8",
+		"Name": "Obsolete Space Station Module",
+		"Description": "The module from a space station that ceased to exist ages ago.",
+		"Mineables": null,
+		"HasArtifacts": true,
+		"RechargeMin": 0.0,
+		"RechargeMax": 0.0,
+		"CapacityMin": 0.0,
+		"CapacityMax": 0.0
+	},
+	"ArtifactSpacePOI_RussellsTeapot": {
+		"Id": "ArtifactSpacePOI_RussellsTeapot",
+		"Name": "Russell's Teapot",
+		"Description": "Has never been disproven to not exist.",
+		"Mineables": null,
+		"HasArtifacts": true,
+		"RechargeMin": 0.0,
+		"RechargeMax": 0.0,
+		"CapacityMin": 0.0,
+		"CapacityMax": 0.0
+	},
+	"TemporalTear": {
+		"Id": "TemporalTear",
+		"Name": "Temporal Tear",
+		"Description": "The source of our misfortune, though it may also be our shot at freedom. Traces of Neutronium are detectable in my readings.",
+		"Mineables": null,
+		"HasArtifacts": false,
+		"RechargeMin": 0.0,
+		"RechargeMax": 0.0,
+		"CapacityMin": 0.0,
+		"CapacityMax": 0.0
+	}
+}

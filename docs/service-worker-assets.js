@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "0fvbdz6A",
+  "version": "3MB7Z6yf",
   "assets": [
     {
       "hash": "sha256-8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U=",
@@ -54,7 +54,7 @@ self.assetsManifest = {
       "url": "_framework/Microsoft.AspNetCore.Http.Features.wasm"
     },
     {
-      "hash": "sha256-Mp2bc0mg+qNHoAF5hql/VhB4sngMCXW+GuSVx4R7nts=",
+      "hash": "sha256-RSM9bLqHq1CY3b3BGT2IJO9Is3QoOl1xdNRJdKdRmzo=",
       "url": "_framework/Microsoft.CSharp.wasm"
     },
     {
@@ -118,7 +118,7 @@ self.assetsManifest = {
       "url": "_framework/Microsoft.Net.Http.Headers.wasm"
     },
     {
-      "hash": "sha256-uZv05nR/xxDP+87HrRwljA4s9/95CVpQ6cdPrHGOr2Y=",
+      "hash": "sha256-MDceGLyYrKmbo5NE/z1iTZySaDt4lE99AYDxjPhVrwY=",
       "url": "_framework/MudBlazor.wasm"
     },
     {
@@ -126,203 +126,207 @@ self.assetsManifest = {
       "url": "_framework/Newtonsoft.Json.wasm"
     },
     {
-      "hash": "sha256-FYYpkUK4LUv0NJQrtqnG2Wd3wDlMbCmNUgsMQ8gse0w=",
+      "hash": "sha256-9xJP0UHYsBz0bPTH1wuP4JQn6pC0xqvkxWKRAKg764U=",
       "url": "_framework/System.Buffers.wasm"
     },
     {
-      "hash": "sha256-XXYJMWc3LDOCvGkNYx3iAkg78vu0443SP8YWw8SGKWA=",
+      "hash": "sha256-7+Qzlpk9/hmG4qemeFXtIVsPOl42epj7K9ImYap56oM=",
       "url": "_framework/System.Collections.Concurrent.wasm"
     },
     {
-      "hash": "sha256-i0xFeQeUIx4qsMKVOcjk8aMW44zGhvSH52jJ0Uo+gzE=",
+      "hash": "sha256-FL731qRDmqEfdsiMzFnK+IOB7TgELYHUqUYSIf3rfN0=",
       "url": "_framework/System.Collections.Immutable.wasm"
     },
     {
-      "hash": "sha256-5CupC9+YtTVgP/2ORKqEvfL1cFozpm4vCMa4adgaqhI=",
+      "hash": "sha256-B2KYOcws7YVTvfd7nCRo+NREua+lKaxIbcGL/sRSvOs=",
       "url": "_framework/System.Collections.NonGeneric.wasm"
     },
     {
-      "hash": "sha256-NGjG6yLlfoDLaCjyPVmRn72SLHmR+zwQa1opltfh8kg=",
+      "hash": "sha256-k7e6jP+Lg3U94ujyJtjY7h0ib+h+k5GOjjXtt0accnw=",
       "url": "_framework/System.Collections.Specialized.wasm"
     },
     {
-      "hash": "sha256-yTIohoLA97g00BLN1LOdX17WE0u7f7KnYU17WV3WVbs=",
+      "hash": "sha256-seDt/lB1Ya/bzv4RZqZ/3XQeYa0FnmhGStt6sV5l6kY=",
       "url": "_framework/System.Collections.wasm"
     },
     {
-      "hash": "sha256-DZ5jW9YXn+kXBnUG6eoGL+m/BJCkwQJKPpHyYfMyVJo=",
+      "hash": "sha256-HGfyzHT1ZFJeOK8ZgVdtAf5iT7vKE3gbCmqvR1h+eC4=",
       "url": "_framework/System.ComponentModel.Annotations.wasm"
     },
     {
-      "hash": "sha256-PJKBy0/fQqLSHEcI85YcxWkR6y2QVnps4PoWa1Iyrcc=",
+      "hash": "sha256-iL4Gg4/HzjEZOsBLMFHIRuXI2Q2aSNqTPozqEfzmqOU=",
       "url": "_framework/System.ComponentModel.Primitives.wasm"
     },
     {
-      "hash": "sha256-LZV04rnc+ttuhqKmbc7AU+Vf565LzzEhmMoSOyQ3m6o=",
+      "hash": "sha256-rokOgRBilV/52aToogOmzQQcOSaQO+irhvEU0JcJVMw=",
       "url": "_framework/System.ComponentModel.TypeConverter.wasm"
     },
     {
-      "hash": "sha256-X9vgkY2cIvC8CnMneUHTyXHxPHRYmnx52CtgRikSWAw=",
+      "hash": "sha256-215aqiLb+UiIK95sP+Ndm6dOn6yEZUjSBI4zccxMOfo=",
       "url": "_framework/System.ComponentModel.wasm"
     },
     {
-      "hash": "sha256-NxM8s/F2HeNka2Kq9IZq6v00ouSHUACJKnZH+iffbfg=",
+      "hash": "sha256-aJnKrLy7VkSlCfDw4SGGoWR9WTsNIfugavj6pveDpXk=",
       "url": "_framework/System.Console.wasm"
     },
     {
-      "hash": "sha256-Q26B0Omw16+s4a0inRE05zczvjqdICr9rqGfO5zs+30=",
+      "hash": "sha256-tsYofihkpCohGy0agLCedV+sixQE9QeqK/30rhwQ3PI=",
       "url": "_framework/System.Data.Common.wasm"
     },
     {
-      "hash": "sha256-6DJuKJjtNr/kV0kdXhYo9lhaCINuz1et20SY8GDbDLw=",
+      "hash": "sha256-deYQy96yXbA3VMk5dNiSoDcWU8Rdc/BnAe2/ralIigI=",
       "url": "_framework/System.Diagnostics.DiagnosticSource.wasm"
     },
     {
-      "hash": "sha256-RsngvgmS970icT+lDhFla0lGb1mvAeLPfxqoMjWfw2E=",
+      "hash": "sha256-h3t9d1IHTWGHWjy2OK/3gaSrtEJIxDYQCBVHJK4SkO0=",
       "url": "_framework/System.Diagnostics.TraceSource.wasm"
     },
     {
-      "hash": "sha256-DHMumiLFmV9BRv9Ark2ReOxAPmAfyQa+X47gt4oDJH0=",
+      "hash": "sha256-FiJOJZrNZOoSpwPgU/QlmoEkOryooeRC2fUEhjzE3ho=",
       "url": "_framework/System.Drawing.Primitives.wasm"
     },
     {
-      "hash": "sha256-mbI+5f5hZ8gubznOitxGPQ6pXXMcD7rv6ZzKa4N9gww=",
+      "hash": "sha256-Iels+eEqb1heFK9dvVuel2g1jwGPq+83lG0mtEEudM0=",
       "url": "_framework/System.Drawing.wasm"
     },
     {
-      "hash": "sha256-/X4GMVtL9Og/UPdf10rZwwrgUtS6s3KZlBqL7+JQK0U=",
+      "hash": "sha256-2F6wze/0d2gYfwLNVmQdAqpnzHScHMyY4a9QZ5Fri70=",
       "url": "_framework/System.Linq.Expressions.wasm"
     },
     {
-      "hash": "sha256-KjW6oyHu9ZHKuNc+opqmW/ZTpu+fBHCe+bRNAWnryuc=",
+      "hash": "sha256-V0ZLgWjf8yOpNr3CWELwUYE82JAcuQ9CrFvYZreImpM=",
       "url": "_framework/System.Linq.wasm"
     },
     {
-      "hash": "sha256-l+Ds2wOqO+06E2aa//eAw9h+rKDLpjEhWKk0xHM/9CE=",
+      "hash": "sha256-dQjggVLU/CEC+BdB2V/ffL3xbdW6qhHpfQSYdzl8m/8=",
       "url": "_framework/System.Memory.wasm"
     },
     {
-      "hash": "sha256-+2GBvO2GGAv5JZtBjP9HCnHruMaXcAFTVuErnXjBL/g=",
+      "hash": "sha256-Ra/1lZGjPl0XW7Wl58oc/JzGQkMdlt/BMOSwb4H52I0=",
       "url": "_framework/System.Net.Http.wasm"
     },
     {
-      "hash": "sha256-wfOIdn16sVRE8/kBlxWKxfQrzIEZr3Qjyr1ztBPBxH4=",
+      "hash": "sha256-Opo+O2qEfiLm+4jkU0dCiCUfrCJCQ1mEeFPANuLmg2k=",
       "url": "_framework/System.Net.Primitives.wasm"
     },
     {
-      "hash": "sha256-OeEiZgGe1wI3REAgN1GzdEmIbdiMfbTz8j+WcdG+6YE=",
+      "hash": "sha256-nWUIVL+Gr312EJ46MktKtxg48hhpQOi7a3Wd8fUlnEQ=",
       "url": "_framework/System.Net.WebSockets.wasm"
     },
     {
-      "hash": "sha256-PRu6LW0JcwmVq381roW8Sg9fHgcA5OqAdIJt4jTpPwg=",
+      "hash": "sha256-/wRhoRiDtHtV9q31CONcdPV0WVWOnoIVkpnMCbeDI4I=",
+      "url": "_framework/System.Numerics.Vectors.wasm"
+    },
+    {
+      "hash": "sha256-jAGSF+qQ78FQXd4bLoMgk8FvDUEUPatsoGliI4gPuz0=",
       "url": "_framework/System.ObjectModel.wasm"
     },
     {
-      "hash": "sha256-BEbLcZ4sJVK9scyxkhGLjUGtPSfgJcLx0W6ErYA0UAs=",
+      "hash": "sha256-cTfb+FbII/Nu5gAbro0ZEhJJluvpe/qc6026kiC9zEc=",
       "url": "_framework/System.Private.CoreLib.wasm"
     },
     {
-      "hash": "sha256-RtgIOVYiIIvyuBirpAydtGYN87JNmWgqtyTM0HAlYRc=",
+      "hash": "sha256-rFKkpN0Rah5FSukseJj3aHMTlf81/xB6Wkb4aFEboFU=",
       "url": "_framework/System.Private.Uri.wasm"
     },
     {
-      "hash": "sha256-PlVHlUsvmtz2UQlhtb/kGD9NEzmytW/xQATzZ1JUUtM=",
+      "hash": "sha256-g+SRBnRWOjUGfWInzjJ7aDnf/VyTDt0kFSHTs01qiXc=",
       "url": "_framework/System.Private.Xml.Linq.wasm"
     },
     {
-      "hash": "sha256-YAGKH7QQImcvxShKrmvaeF7hoRVvAbbEjyTmMN/7ldw=",
+      "hash": "sha256-Iuj2KqiNe3whvUOWst0gCMPBompI9v/erxHhq1BIq0M=",
       "url": "_framework/System.Private.Xml.wasm"
     },
     {
-      "hash": "sha256-Tc81BdL/nlsCBhg5u+JK+VDeFxpFZH3dNnCW6uRM888=",
+      "hash": "sha256-0jmGQOD/VBLjD1hKDb5YcXgh+N/QhaSS5Q6PGwrhlzY=",
       "url": "_framework/System.Reflection.Emit.ILGeneration.wasm"
     },
     {
-      "hash": "sha256-VVgSgZMw1A0a7dU8gN1mOQIghHHRsIAoY/Hw4bNQ72w=",
+      "hash": "sha256-Ss8os70O0sxCzTByV40QQyaWTt0lH+KY/6bqEp3jiVw=",
       "url": "_framework/System.Reflection.Emit.Lightweight.wasm"
     },
     {
-      "hash": "sha256-CIKuUnQEiqjNildQr6nxy1QrPcGf1tcD+SCQXJAFe/Y=",
+      "hash": "sha256-nLxuWv3/g/jHY00bYW2Ieln9FHm8XhZZ24KMj5ns8ME=",
       "url": "_framework/System.Reflection.Primitives.wasm"
     },
     {
-      "hash": "sha256-WL7eW1JaLznO/9RvD/dkv3ye0Ea+yF//MaD2COPPiTE=",
+      "hash": "sha256-obpfktlMMZRd/6+94Eqsz43u4IBXSwphEA0oRmrGRrE=",
       "url": "_framework/System.Runtime.InteropServices.JavaScript.wasm"
     },
     {
-      "hash": "sha256-1SOH3xloQrvoWhe04UF8cQzF4NX5VlteqA6jIT0MXkg=",
+      "hash": "sha256-/uCZzWMIKi9rkthPvB9gDejaOoR9HKG3uxcmOy1Xx7Q=",
       "url": "_framework/System.Runtime.InteropServices.wasm"
     },
     {
-      "hash": "sha256-2v0srY6KVFy6aql3HFJWcK4EkPuEtjg5rb4wv2MY/no=",
+      "hash": "sha256-SnyPMc9C5wPJ1An7NJl9CEQN/mhqe4cTdr88NU3sLA4=",
       "url": "_framework/System.Runtime.Numerics.wasm"
     },
     {
-      "hash": "sha256-YNLQRMMJ8n10YVAos5oVHG/CjOYn8oCuXQ2+Nxa0MVA=",
+      "hash": "sha256-++TwLS7EZURHXOZ+HUuHDSjO9gkmpo8rS0eI3hAy1G0=",
       "url": "_framework/System.Runtime.Serialization.Formatters.wasm"
     },
     {
-      "hash": "sha256-jgOa8gmE9Guitho6ttsjY52k0/xg0EhOCrUT7mX7YIE=",
+      "hash": "sha256-9TszdHAIuILR1cMEBmUTJ2EaEWsbpgKU7EQ/tgpY0xA=",
       "url": "_framework/System.Runtime.Serialization.Primitives.wasm"
     },
     {
-      "hash": "sha256-AD1/tq5pXkT+mggYUwoOJjId7LWY+fccd1Pwj8wMkXI=",
+      "hash": "sha256-o7Vb3RZkYo+R8E+WWK5nvhYjHlMXXArvgUOCKLYslZk=",
       "url": "_framework/System.Runtime.wasm"
     },
     {
-      "hash": "sha256-fMeqNm1fUrF9R5kWkj1qbaNIa9oYPr5h6FMmYnEpgzg=",
+      "hash": "sha256-cZ6Yakq3+8TU/lCqNqX5w8XJo/PfBddQ//jxnJe55vg=",
       "url": "_framework/System.Security.Claims.wasm"
     },
     {
-      "hash": "sha256-EMH+cjvWaUO40Pg/upAc71dXp9x0kEbLTPF9X+xJR8Q=",
+      "hash": "sha256-vw7TbOOr0jQuD9THIw2Rt8PVYycdGZqOGCvZE8MqL4A=",
       "url": "_framework/System.Security.Cryptography.wasm"
     },
     {
-      "hash": "sha256-Sa2pkS1BddgbYO85KHfUzt8GEDtX4U21jMazaqE6iCg=",
+      "hash": "sha256-MRHVGg1CUAJXNqF7yDNRWwuf4K0OinIFOvme3AT3IKA=",
       "url": "_framework/System.Text.Encoding.Extensions.wasm"
     },
     {
-      "hash": "sha256-UFFMASAgJQuHYyx+1RyyL9BvizFYLYOo/ApGZ/1rVVc=",
+      "hash": "sha256-BmFQ3EXx8SOlyBW1AXrjYEGyOzkdcMuWBL6b3dE9Mq0=",
       "url": "_framework/System.Text.Encodings.Web.wasm"
     },
     {
-      "hash": "sha256-aOiax5we3Pol332WKpL72Ir+5T1QpUrVehTnB/9/VDU=",
+      "hash": "sha256-EO5Cw+ddmRvJt6tokh9h0/6rX63U4272PWVKKcnnLzQ=",
       "url": "_framework/System.Text.Json.wasm"
     },
     {
-      "hash": "sha256-7H2lwXTELi7PA34jLv8OSdI8J+W8cZ0t4Ju8xXwRhWc=",
+      "hash": "sha256-Odg32tYKHX6PNu4jQyIMd/eXao3DxgXgbZRSYDneBPY=",
       "url": "_framework/System.Text.RegularExpressions.wasm"
     },
     {
-      "hash": "sha256-bEuUfbH5wxn0TlFTt8S9iFUYxIUyU/8HTo4dsFTrHTo=",
+      "hash": "sha256-qdFor27turMzpayhcymzZpI1BeMuDgpHqzsi06+Zceo=",
       "url": "_framework/System.Threading.wasm"
     },
     {
-      "hash": "sha256-tleXqRu3PskvBSbXgj1TRvFQXzrU44c8N0xHnAyoDnY=",
+      "hash": "sha256-d/uQ1xy7bhv6hLDznliPtCRHP9BfpZTBFO7CYlW1hjo=",
       "url": "_framework/System.Web.HttpUtility.wasm"
     },
     {
-      "hash": "sha256-hBHQPzHDyzGS46AwOT1zxDGu6TGrvROMn0jW8km+sGI=",
+      "hash": "sha256-nZUqq1LQ1iYER5V+ccZ1y3uuv7Hjj42vEGwKqg1UwdE=",
       "url": "_framework/System.Xml.Linq.wasm"
     },
     {
-      "hash": "sha256-JES+eynZM2OqqzClBom6iwyD9/53iY4vzbuhWcRnzgI=",
+      "hash": "sha256-JqHNRadi7o9o2ZKbFYQXflwRdPe7logWLWGuIv0T/CQ=",
       "url": "_framework/System.Xml.ReaderWriter.wasm"
     },
     {
-      "hash": "sha256-qfk6gUcs6b8JJFLuviCxPKXxXcAbOsvs5CxHDYOxY08=",
+      "hash": "sha256-f29r8GBh1YK6WSVZ2F/k8SqkCPZ+4MXtwNpyz44taW4=",
       "url": "_framework/System.Xml.XDocument.wasm"
     },
     {
-      "hash": "sha256-PUc71Jd5nvz5F65sAd0C3ZORcUzYK2JSfSDmE+Drn0Q=",
+      "hash": "sha256-I4hhyMuUoHdrzDopL9tlnkL/Skg+0OO+gmkOXNT3dcg=",
       "url": "_framework/System.wasm"
     },
     {
-      "hash": "sha256-PZOzFLT3daHsf47RQs4V6h6b6BU7+/2570QnzenI9KY=",
+      "hash": "sha256-x2IUlTYOrJWiRcWRczzDA+9J0Da0nMCmg7E1AOKcp9E=",
       "url": "_framework/TraitFinderApp.wasm"
     },
     {
-      "hash": "sha256-6W3lfslWVHg8pGQrzlDwLjlALZLd/Ph7ytV3yLU4rlI=",
+      "hash": "sha256-awV3vbzFbT+iQADe2F8b/j+qwX63eX2e7I4oGx3cnnY=",
       "url": "_framework/blazor.boot.json"
     },
     {
@@ -330,23 +334,23 @@ self.assetsManifest = {
       "url": "_framework/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-oR0VsfDs3ja+Bjq9sb9O8YkV77L4yHBuFYcG4v0kDvI=",
+      "hash": "sha256-++TR0Z5gL1ub0hTzPqyEv9tUxRoN1dWvD9KTlUlgD/c=",
       "url": "_framework/de/TraitFinderApp.resources.wasm"
     },
     {
-      "hash": "sha256-wlrMn5YfiEag+oXuf9R09IDRqVleLUNSaLJAH5jtdSo=",
+      "hash": "sha256-shrivv+AA9mejPe5Z3aXpzf6r0C+U+vlsY87ADEM23w=",
       "url": "_framework/dotnet.js"
     },
     {
-      "hash": "sha256-QZqLPlL/VsWs5BNn0wTThGVsVDDSLxiNBGDP8p6W1Kg=",
+      "hash": "sha256-MZInljbejx2tTVPY8DS5oYDxkphybcw/ISNZOB43Ak8=",
       "url": "_framework/dotnet.native.js"
     },
     {
-      "hash": "sha256-wXDa53fF84Z7cg78/c6LkNJTC1NsnYEGA561sMX+jsM=",
+      "hash": "sha256-JCHDDPoLEZKpKmIBhDpwlzNQvp6BFIH9GBTZCbKsHds=",
       "url": "_framework/dotnet.native.wasm"
     },
     {
-      "hash": "sha256-aLf0XK8bqX83FXyXydFPTC1FOTq3PaeGDyoDn3uz194=",
+      "hash": "sha256-6bV/iAemowb59rmItegP8VsxwWpWUNyMb0Q76Fvvsjo=",
       "url": "_framework/dotnet.runtime.js"
     },
     {
@@ -362,15 +366,15 @@ self.assetsManifest = {
       "url": "_framework/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-FQgaDvjaAW5qWnojis8XEk81/uIBdJCAtK6spXyqhTM=",
+      "hash": "sha256-Qb5O79HwsRL3hzsgI60EzbVsuDR8vyDIuSD12UTcR90=",
       "url": "_framework/netstandard.wasm"
     },
     {
-      "hash": "sha256-baRj7Trf09i4LelrMf0+69u/KrZ+rcVbCGW7WmVbGPA=",
+      "hash": "sha256-kNFSEMlD2g8dtWTfyhlet3KcclN0IBeUDOn6vBDHVvk=",
       "url": "_framework/zh-TW/TraitFinderApp.resources.wasm"
     },
     {
-      "hash": "sha256-aAHLfAbdPeCMFWnMUyspPTLdKRZtpBTfx4UvLQVGmuM=",
+      "hash": "sha256-rW3mz1DRoStPNuY0H3HxaeXhN3hpGmfwiF+0R7pAP5U=",
       "url": "_framework/zh/TraitFinderApp.resources.wasm"
     },
     {
@@ -378,20 +382,32 @@ self.assetsManifest = {
       "url": "data/BasegameStarmapDestinations.json"
     },
     {
+      "hash": "sha256-lW7cGlVJVCixM1CGv4JOdhjxjh1oBhksqnP9pHM0f/w=",
+      "url": "data/ClustermapDestinations.json"
+    },
+    {
       "hash": "sha256-EZQYcDvpdUuU9QWDrTskHSCB+mRoLzEK0gYDe8oFgp0=",
       "url": "data/gamedata_base.json"
     },
     {
-      "hash": "sha256-ielui+5xlaAoXRcOWUqV+v5+D9pDu9rIJ0a0RIBhiHc=",
+      "hash": "sha256-PYbbeP1SjtT1iFTdDFof/W+IHkYkjoKHdFpJ7wQ2oWw=",
       "url": "data/gamedata_so.json"
     },
     {
-      "hash": "sha256-aV8QS8G9jHW0mOeVFXrUENA/1kkJnKs/hn1C48D3bb8=",
+      "hash": "sha256-oaADxIvfFcOo96xQkWYoNfMDMLWB0XFonI5KZcKhzEw=",
       "url": "data/mixing_data.json"
     },
     {
       "hash": "sha256-d3PhqSxp4zEI56UBJ44g9o99BfQxJto3hwvFcd5tS8A=",
       "url": "favicon.png"
+    },
+    {
+      "hash": "sha256-H1S8qir82cL7ru+pWhiOSlg0BnvHPR44F0zIoIdG5b4=",
+      "url": "icons/astroidselectscreen_01.png"
+    },
+    {
+      "hash": "sha256-DCO6RZ2S1yH61+LMt7/Vh1g+hUqAbTjUGWPTkwwqFhI=",
+      "url": "icons/astroidselectscreen_01.png.meta"
     },
     {
       "hash": "sha256-J3pD9hU4VLqeBRRir+C+haVVSD3xFpWVQ2tMNJ5BLHo=",
@@ -400,6 +416,10 @@ self.assetsManifest = {
     {
       "hash": "sha256-9lEnrAkwN1AU25qlYioEmS5dUvEfrk3jJT88Zw0wsOA=",
       "url": "icons/building_teleporter_transmitter.webp"
+    },
+    {
+      "hash": "sha256-QWgHHv4QIh1f6Xc5LE+l4FODdeyoZoR1PbKoYThGML0=",
+      "url": "icons/hex.png"
     },
     {
       "hash": "sha256-EsugvnwNasFXO4j5+2E+QfI9i14wxLwkpkpUlPlssoo=",
@@ -540,6 +560,166 @@ self.assetsManifest = {
     {
       "hash": "sha256-ZAXvV1IogrzMbQDBUJDb5hyHQ4hBcwbE4kvzK4/mhPM=",
       "url": "images/Starmap/starmap_destinations_basegame/Wormhole.png"
+    },
+    {
+      "hash": "sha256-yBajsgslyzeNeWBdVQ1xsBM3o5wMUmFaDIVed1/xfqI=",
+      "url": "images/Starmap/starmap_destinations_cluster/ArtifactSpacePOI_GravitasSpaceStation1.png"
+    },
+    {
+      "hash": "sha256-tfZ4Y3aZgab+09zW108PwdUF/X+ODRGxADBE6ZwZ6kM=",
+      "url": "images/Starmap/starmap_destinations_cluster/ArtifactSpacePOI_GravitasSpaceStation2.png"
+    },
+    {
+      "hash": "sha256-lBFXohx8f941qXY2nq/g23/iSp0TEvQGOByzLJJJbGc=",
+      "url": "images/Starmap/starmap_destinations_cluster/ArtifactSpacePOI_GravitasSpaceStation3.png"
+    },
+    {
+      "hash": "sha256-ccrZs5Ht3O1YBLyooYeiy6Z3N70+RELL4g/N/klwm3U=",
+      "url": "images/Starmap/starmap_destinations_cluster/ArtifactSpacePOI_GravitasSpaceStation4.png"
+    },
+    {
+      "hash": "sha256-914JGhJFnDjN9a7AhqHLm2ryudsOtvQmLD2DyZv08z8=",
+      "url": "images/Starmap/starmap_destinations_cluster/ArtifactSpacePOI_GravitasSpaceStation5.png"
+    },
+    {
+      "hash": "sha256-mJ6B15aEt0Rc3OLzQBeCkrOFPRHxLiZGgfbK+SrMfXE=",
+      "url": "images/Starmap/starmap_destinations_cluster/ArtifactSpacePOI_GravitasSpaceStation6.png"
+    },
+    {
+      "hash": "sha256-Mu3LsG7TCCmaS74BDswps5PAKUg+fVMc1/QoBLbL9PU=",
+      "url": "images/Starmap/starmap_destinations_cluster/ArtifactSpacePOI_GravitasSpaceStation7.png"
+    },
+    {
+      "hash": "sha256-HKP45MYYxhsIf/ifA0BzoitvWGcwXcitCrYDMPqDoLM=",
+      "url": "images/Starmap/starmap_destinations_cluster/ArtifactSpacePOI_GravitasSpaceStation8.png"
+    },
+    {
+      "hash": "sha256-AXx6xIwIh3UtOKRy8fE2qV/VqW02fOh0+w6rnqFQUDE=",
+      "url": "images/Starmap/starmap_destinations_cluster/ArtifactSpacePOI_RussellsTeapot.png"
+    },
+    {
+      "hash": "sha256-c8f2DFEdeMNyZrbeOzUb7S+MZxBZqzL01TcoviG/eb4=",
+      "url": "images/Starmap/starmap_destinations_cluster/HarvestableSpacePOI_CarbonAsteroidField.png"
+    },
+    {
+      "hash": "sha256-O1z3KT804Jdzv+IfKj2dcOQkYHrIdRBTUOoHsKJi1dE=",
+      "url": "images/Starmap/starmap_destinations_cluster/HarvestableSpacePOI_ChlorineCloud.png"
+    },
+    {
+      "hash": "sha256-DWq3u5bS01swAEkWdk8kqrkYn9gd0XqJufn350L9KfU=",
+      "url": "images/Starmap/starmap_destinations_cluster/HarvestableSpacePOI_DLC2CeresField.png"
+    },
+    {
+      "hash": "sha256-0NTf5gIO9eLejyQNdrbnOAdLTBL6tsuJyi0wLsguEwo=",
+      "url": "images/Starmap/starmap_destinations_cluster/HarvestableSpacePOI_DLC2CeresOreField.png"
+    },
+    {
+      "hash": "sha256-jJ/idNPHwNB5zP2veWhaXs8v225RFLO6caMHSDI/Tu4=",
+      "url": "images/Starmap/starmap_destinations_cluster/HarvestableSpacePOI_DLC4ImpactorDebrisField1.png"
+    },
+    {
+      "hash": "sha256-6TuW/HgqqQXI41ztn8VP4TqNfSLCZMXdOK2OXG77f4U=",
+      "url": "images/Starmap/starmap_destinations_cluster/HarvestableSpacePOI_DLC4ImpactorDebrisField2.png"
+    },
+    {
+      "hash": "sha256-ipUe2aOMBZomcmKVzZWRKi9xug67M1/6Sb6CVzxgjbE=",
+      "url": "images/Starmap/starmap_destinations_cluster/HarvestableSpacePOI_DLC4ImpactorDebrisField3.png"
+    },
+    {
+      "hash": "sha256-hA9eZqKagn3Yb82E+/dtYOFtvQ9tThg6s9YcI6ssvFE=",
+      "url": "images/Starmap/starmap_destinations_cluster/HarvestableSpacePOI_DLC4PrehistoricMixingField.png"
+    },
+    {
+      "hash": "sha256-ACAy3pYs6/Bugbpn9d3UpuEcrDcaQBnQZ9Ay/wHLvrg=",
+      "url": "images/Starmap/starmap_destinations_cluster/HarvestableSpacePOI_DLC4PrehistoricOreField.png"
+    },
+    {
+      "hash": "sha256-2tAjhT30IjFZwDWIWmrjOP3lpF5wz3oUQu2/ozSKJ3E=",
+      "url": "images/Starmap/starmap_destinations_cluster/HarvestableSpacePOI_ForestyOreField.png"
+    },
+    {
+      "hash": "sha256-7nALbsdEg7TS/tHsWTdelKlcxe3p6V/acqA7yTaAMUc=",
+      "url": "images/Starmap/starmap_destinations_cluster/HarvestableSpacePOI_FrozenOreField.png"
+    },
+    {
+      "hash": "sha256-00LEQYGlTXhD8xDM6R5ZCxAil2dSYqFbwuLOQuNoHpU=",
+      "url": "images/Starmap/starmap_destinations_cluster/HarvestableSpacePOI_GasGiantCloud.png"
+    },
+    {
+      "hash": "sha256-Mh/v24tdL3UfxLuLejNpTDPlMQ5RVbh5m6LM4sqKwC8=",
+      "url": "images/Starmap/starmap_destinations_cluster/HarvestableSpacePOI_GildedAsteroidField.png"
+    },
+    {
+      "hash": "sha256-z826a0XK26WM/HSuSacD83Bd2prtJbxuPXdfQdm5zAw=",
+      "url": "images/Starmap/starmap_destinations_cluster/HarvestableSpacePOI_GlimmeringAsteroidField.png"
+    },
+    {
+      "hash": "sha256-D5Xqh9FwxLy7T3DCZvgCQBULNchfOpu14JiznUO0J7E=",
+      "url": "images/Starmap/starmap_destinations_cluster/HarvestableSpacePOI_HeliumCloud.png"
+    },
+    {
+      "hash": "sha256-CxZeouG+F8BGdZ5sSF0p4jjn7FzspdnT0zRgJKTOf7U=",
+      "url": "images/Starmap/starmap_destinations_cluster/HarvestableSpacePOI_IceAsteroidField.png"
+    },
+    {
+      "hash": "sha256-2vGxXfeCz1RSVdIFSH3w07jqCULhnQzqxxKd4n4NXIY=",
+      "url": "images/Starmap/starmap_destinations_cluster/HarvestableSpacePOI_InterstellarIceField.png"
+    },
+    {
+      "hash": "sha256-TiTrCItQ60OU1ilNaW345LJkO2qxo5lCPy39HFlDNBk=",
+      "url": "images/Starmap/starmap_destinations_cluster/HarvestableSpacePOI_InterstellarOcean.png"
+    },
+    {
+      "hash": "sha256-TsXtEvBgKA0d0FQFe7lMi6VBRgpRa9OSWpy9VoDj+Cw=",
+      "url": "images/Starmap/starmap_destinations_cluster/HarvestableSpacePOI_MetallicAsteroidField.png"
+    },
+    {
+      "hash": "sha256-NIYURjTCTBBTf8n4on80hqU4MUsEB8InGJjDUmwTIHw=",
+      "url": "images/Starmap/starmap_destinations_cluster/HarvestableSpacePOI_OilyAsteroidField.png"
+    },
+    {
+      "hash": "sha256-HR4cN6CU1tn5EumgbwUNNMtnrOB+HL5/E9QveMOdcWE=",
+      "url": "images/Starmap/starmap_destinations_cluster/HarvestableSpacePOI_OrganicMassField.png"
+    },
+    {
+      "hash": "sha256-a3OEH8i6kG64WGi5PZ6/Gc5RmqsRfi0CvOBS5uVStYA=",
+      "url": "images/Starmap/starmap_destinations_cluster/HarvestableSpacePOI_OxidizedAsteroidField.png"
+    },
+    {
+      "hash": "sha256-3i4z9YvWN+j/DshXXtIBImyZwhgTgKJIL4pfx3DFtlM=",
+      "url": "images/Starmap/starmap_destinations_cluster/HarvestableSpacePOI_OxygenRichAsteroidField.png"
+    },
+    {
+      "hash": "sha256-UEdlIzd5npwI3YENfmqcYbe3n/1DwPEKH0LBm761CPM=",
+      "url": "images/Starmap/starmap_destinations_cluster/HarvestableSpacePOI_RadioactiveAsteroidField.png"
+    },
+    {
+      "hash": "sha256-zyvegpsfGkdZIDoMhZE75XDWMguMzTEs0Mp1pDKOxds=",
+      "url": "images/Starmap/starmap_destinations_cluster/HarvestableSpacePOI_RadioactiveGasCloud.png"
+    },
+    {
+      "hash": "sha256-MH7WEXuzumoVQy7SDOA6V21nhPd5dhH+FcQuJPzTpc8=",
+      "url": "images/Starmap/starmap_destinations_cluster/HarvestableSpacePOI_RockyAsteroidField.png"
+    },
+    {
+      "hash": "sha256-ExVR2HPvYydmGZGnNUW3FoMTWAd8ZYQlPxd9eUzK5nw=",
+      "url": "images/Starmap/starmap_destinations_cluster/HarvestableSpacePOI_SaltyAsteroidField.png"
+    },
+    {
+      "hash": "sha256-TEAeyOK1CAOXGRlwv4IhmhD/8eyKDXtICczBqqMuf8Q=",
+      "url": "images/Starmap/starmap_destinations_cluster/HarvestableSpacePOI_SandyOreField.png"
+    },
+    {
+      "hash": "sha256-+pIhIvrO7nyPC0GfUK+0ZFZoEsuALFgZmayMOJ244jI=",
+      "url": "images/Starmap/starmap_destinations_cluster/HarvestableSpacePOI_SatelliteField.png"
+    },
+    {
+      "hash": "sha256-zQ3vE1rHw8RwGmk5ZOrh2BcLwq+DgXEtkrNRTNVB8/U=",
+      "url": "images/Starmap/starmap_destinations_cluster/HarvestableSpacePOI_SwampyOreField.png"
+    },
+    {
+      "hash": "sha256-k0+7BvR7ZP5efalP8NLOOLHapcN+XtzcyXaoD8HVmMw=",
+      "url": "images/Starmap/starmap_destinations_cluster/TemporalTear.png"
     },
     {
       "hash": "sha256-YrwgK6dstOjBKCOXcxrjO8VblsW9JK1l9BSiosyNbZE=",
